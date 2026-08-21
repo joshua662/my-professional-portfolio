@@ -1,705 +1,837 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Professional Portfolio</title>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body class="text-gray-800 bg-white transition-colors duration-300">
-    
+    <link rel="stylesheet" href="output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class="text-gray-800 bg-white transition-colors duration-300">
     <!-- Header / Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-sm transition-colors duration-300">
-        <nav class="container px-6 py-4 mx-auto">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <a href="#home" class="flex items-center space-x-3 cursor-pointer">
-                    <div class="flex justify-center items-center w-10 h-10 bg-green-500 rounded-full">
-                        <span class="text-lg font-bold text-white">J</span>
-                    </div>
-                    <span class="text-xl font-semibold text-gray-900">Josh Simpas</span>
+    <header
+      class="sticky top-0 z-50 bg-white shadow-sm transition-colors duration-300"
+    >
+      <nav class="container px-6 py-4 mx-auto">
+        <div class="flex justify-between items-center">
+          <!-- Logo -->
+          <a href="#home" class="flex items-center space-x-3 cursor-pointer">
+            <div
+              class="flex justify-center items-center w-10 h-10 bg-green-500 rounded-full"
+            >
+              <span class="text-lg font-bold text-white">J</span>
+            </div>
+            <span class="text-xl font-semibold text-gray-900">Josh Simpas</span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden relative items-center space-x-6 md:flex">
+            <!-- About Me Dropdown -->
+            <div class="relative group">
+              <a
+                href="#about"
+                class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500"
+              >
+                About Me
+              </a>
+            </div>
+
+            <a
+              href="#resume"
+              class="text-gray-700 transition-colors nav-link hover:text-green-500"
+              >Skills</a
+            >
+
+            <!-- Portfolio Dropdown -->
+            <div class="relative group">
+              <a
+                href="#portfolio"
+                class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500"
+              >
+                Projects
+              </a>
+              <div
+                class="absolute left-0 top-full invisible z-50 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto"
+              ></div>
+            </div>
+
+            <!-- Blog Dropdown -->
+            <div class="relative group">
+              <a
+                href="#blog"
+                class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500"
+              >
+                Certificates
+              </a>
+              <div
+                class="absolute left-0 top-full invisible z-50 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto"
+              ></div>
+            </div>
+
+            <a
+              href="#contact"
+              class="text-gray-700 transition-colors nav-link hover:text-green-500"
+              >Contact</a
+            >
+          </div>
+
+          <div class="flex items-center space-x-4 md:hidden">
+            <!-- Mobile Menu Button -->
+            <button class="text-gray-700" id="mobile-menu-btn">
+              <i class="text-xl fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="hidden pb-4 mt-4 md:hidden" id="mobile-menu">
+          <div class="flex flex-col space-y-3">
+            <div class="mobile-dropdown">
+              <div class="flex justify-between items-center">
+                <a
+                  href="#about"
+                  class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500"
+                >
+                  About Me
                 </a>
-
-                <!-- Desktop Navigation -->
-                <div class="hidden relative items-center space-x-6 md:flex">
-                    <!-- About Me Dropdown -->
-                    <div class="relative group">
-                        <a href="#about" class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500">
-                            About Me
-                        </a>
-                    </div>
-                    
-                    <a href="#resume" class="text-gray-700 transition-colors nav-link hover:text-green-500">Skills</a>
-                    
-                    <!-- Portfolio Dropdown -->
-                    <div class="relative group">
-                        <a href="#portfolio" class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500">
-                            Projects
-                        </a>
-                            <div class="absolute left-0 top-full invisible z-50 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto">
-                        </div>
-                    </div>
-                    
-                    <!-- Blog Dropdown -->
-                    <div class="relative group">
-                        <a href="#blog" class="flex items-center text-gray-700 transition-colors cursor-pointer nav-link hover:text-green-500">
-                            Certificates
-                        </a>
-                        <div class="absolute left-0 top-full invisible z-50 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 transition-all duration-300 pointer-events-none group-hover:opacity-100 group-hover:visible group-hover:pointer-events-auto">
-                        </div>
-                    </div>
-                    
-                    <a href="#contact" class="text-gray-700 transition-colors nav-link hover:text-green-500">Contact</a>
-
-                </div>
-
-                <div class="flex items-center space-x-4 md:hidden">
-                    <!-- Mobile Menu Button -->
-                    <button class="text-gray-700" id="mobile-menu-btn">
-                        <i class="text-xl fas fa-bars"></i>
-                    </button>
-                </div>
+              </div>
             </div>
-
-            <!-- Mobile Navigation -->
-            <div class="hidden pb-4 mt-4 md:hidden" id="mobile-menu">
-                <div class="flex flex-col space-y-3">
-                    <div class="mobile-dropdown">
-                        <div class="flex justify-between items-center">
-                            <a href="#about" class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500">
-                                About Me
-                            </a>
-                        </div>
-                    </div>
-                    <a href="#resume" class="text-gray-700 transition-colors nav-link hover:text-green-500">Skills</a>
-                    <div class="mobile-dropdown">
-                        <div class="flex justify-between items-center">
-                            <a href="#portfolio" class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500">
-                                Projects
-                            </a>
-                            <button type="button" class="px-2 text-gray-700 mobile-dropdown-toggle">
-                            </button>
-                        </div>
-                    </div>
-                    <div class="mobile-dropdown">
-                        <div class="flex justify-between items-center">
-                            <a href="#blog" class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500">
-                                Certificates
-                            </a>
-                        </div>                      
-                    </div>
-                    <a href="#contact" class="text-gray-700 transition-colors nav-link hover:text-green-500">Contact</a> 
-                </div>
+            <a
+              href="#resume"
+              class="text-gray-700 transition-colors nav-link hover:text-green-500"
+              >Skills</a
+            >
+            <div class="mobile-dropdown">
+              <div class="flex justify-between items-center">
+                <a
+                  href="#portfolio"
+                  class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500"
+                >
+                  Projects
+                </a>
+                <button
+                  type="button"
+                  class="px-2 text-gray-700 mobile-dropdown-toggle"
+                ></button>
+              </div>
             </div>
-        </nav>
+            <div class="mobile-dropdown">
+              <div class="flex justify-between items-center">
+                <a
+                  href="#blog"
+                  class="flex-1 text-gray-700 transition-colors nav-link hover:text-green-500"
+                >
+                  Certificates
+                </a>
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="text-gray-700 transition-colors nav-link hover:text-green-500"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="py-16 bg-gradient-to-br from-gray-50 to-whitefrom-gray-900to-gray-800 md:py-24">
-        <div class="container px-6 mx-auto">
-            <div class="flex flex-col gap-12 items-center md:flex-row">
-                <!-- Profile Picture -->
-                <div class="flex-shrink-0">
-                    <div class="overflow-hidden w-64 h-64 bg-gray-200 rounded-full border-4 border-green-500 shadow-2xl transition-transform duration-300 transform md:w-80 md:h-80 hover:scale-105">
-                        <img src="image/Profile2.jpg" 
-                             alt="Profile Picture" 
-                             class="object-cover w-full h-full">
-                    </div>
-                </div>
-
-                <!-- Hero Content -->
-                <div class="flex-1 text-center md:text-left">
-                    <span class="inline-block px-3 py-1 mb-2 text-sm font-semibold tracking-wide text-gray-500 uppercase bg-green-100 rounded-full">Frontend Developer \ Tambay</span>
-                    <h1 class="mt-4 mb-6 text-4xl font-bold text-gray-900 md:text-5xl lg:text-6xl">
-                        Josh Simpas
-                    </h1>        
-                    <p class="mb-8 max-w-2xl text-base leading-relaxed text-gray-600">
-                        My portfolio showcases academic projects, technical skills, and hands-on experiences in software development, system management, and emerging technologies. I'm dedicated to demonstrating problem-solving abilities, creativity in coding, and adaptability in modern IT environments.
-                    </p>
-                    
-                   
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col gap-4 justify-center mb-8 sm:flex-row md:justify-start">
-                        <a href="RESUME AND LETTER.pdf" download="RESUME AND LETTER.pdf" class="px-8 py-3 font-semibold text-center text-white bg-green-500 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-green-600 hover:shadow-xl hover:-translate-y-1">
-                            <i class="mr-2 fas fa-download"></i>Download CV
-                        </a>
-                        <a href="RESUME AND LETTER.pdf" target="_blank" rel="noopener noreferrer" class="px-8 py-3 font-semibold text-center text-gray-700 bg-white border-2 border-green-500 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-green-50 hover:shadow-xl hover:-translate-y-1">
-                            <i class="mr-2 fas fa-eye"></i>View CV
-                        </a>
-                    </div>
-                </div>
+    <section
+      id="home"
+      class="flex items-center min-h-[calc(100vh-4.5rem)] bg-gradient-to-br from-gray-50 to-white px-4 py-10 sm:px-6 lg:px-8 lg:py-12"
+    >
+      <div class="mx-auto w-full max-w-7xl">
+        <div
+          class="flex flex-col gap-10 items-center justify-center lg:gap-16 md:flex-row md:items-center"
+        >
+          <!-- Profile Picture -->
+          <div class="flex-shrink-0">
+            <div
+              class="overflow-hidden w-48 h-48 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 bg-gray-200 rounded-full border-4 border-green-500 shadow-2xl transition-transform duration-300 transform hover:scale-105"
+            >
+              <img
+                src="image/Profile2.jpg"
+                alt="Profile Picture"
+                class="object-cover w-full h-full"
+              />
             </div>
+          </div>
+
+          <!-- Hero Content -->
+          <div class="flex-1 w-full text-center md:text-left">
+            <span
+              class="inline-block px-3 py-1 mb-2 text-sm font-semibold tracking-wide text-gray-500 uppercase bg-green-100 rounded-full"
+              >Frontend Developer \ Tambay</span
+            >
+            <h1
+              class="mt-4 mb-6 text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl xl:text-7xl"
+            >
+              Josh Simpas
+            </h1>
+            <p
+              class="mb-8 mx-auto max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg md:mx-0 md:max-w-none lg:max-w-3xl"
+            >
+              My portfolio showcases academic projects, technical skills, and
+              hands-on experiences in software development, system management,
+              and emerging technologies. I'm dedicated to demonstrating
+              problem-solving abilities, creativity in coding, and adaptability
+              in modern IT environments.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div
+              class="flex flex-col gap-4 justify-center mb-8 sm:flex-row md:justify-start"
+            >
+              <a
+                href="RESUME AND LETTER.pdf"
+                download="RESUME AND LETTER.pdf"
+                class="px-8 py-3 font-semibold text-center text-white bg-green-500 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-green-600 hover:shadow-xl hover:-translate-y-1"
+              >
+                <i class="mr-2 fas fa-download"></i>Download CV
+              </a>
+              <a
+                href="RESUME AND LETTER.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="px-8 py-3 font-semibold text-center text-gray-700 bg-white border-2 border-green-500 rounded-lg shadow-lg transition-all duration-300 transform hover:bg-green-50 hover:shadow-xl hover:-translate-y-1"
+              >
+                <i class="mr-2 fas fa-eye"></i>View CV
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- About Me & Skills Section -->
     <section id="about" class="py-20 bg-gray-50">
-        <div class="container px-6 mx-auto">
-            <div class="mb-12 text-center">
-                <h2 class="inline-block mb-2 text-3xl font-bold text-gray-900 md:text-4xl">
-                    About Me 
-                    <div class="mx-auto mt-2 w-20 h-1 bg-green-500"></div>
-                </h2>
-            </div>
-
-            <!-- About Me and My Experience Layout -->
-            <div class="grid gap-8 lg:grid-cols-2 mb-8">
-                <!-- About Me - Left Side -->
-                <div class="p-8 bg-white rounded-xl border shadow-lg border-gray-100border-gray-700">
-                    <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
-                        <i class="mr-3 text-3xl text-green-500 fas fa-user-circle"></i>
-                        About Me
-                    </h3>
-                    <div class="space-y-4">
-                        <p class="text-lg leading-relaxed text-gray-600">
-                            I'm an Information Technology student passionate about software development, system management, and emerging technologies. 
-                            My journey in IT has been focused on building practical solutions and continuously learning new technologies.
-                        </p>
-                        <p class="text-lg leading-relaxed text-gray-600">
-                            I specialize in frontend development with a strong foundation in modern web technologies. 
-                            My academic projects and hands-on experiences have equipped me with problem-solving abilities and adaptability in modern IT environments.
-                        </p>
-                        <div class="pt-4 border-t border-gray-200">
-                            <div class="flex flex-wrap gap-3">
-                                <span class="px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded-full">
-                                    <i class="mr-2 fas fa-graduation-cap"></i>IT Student
-                                </span>
-                                <span class="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-100 rounded-full">
-                                    <i class="mr-2 fas fa-code"></i>Developer
-                                </span>
-                                <span class="px-4 py-2 text-sm font-medium text-purple-700 bg-purple-100 rounded-full">
-                                    <i class="mr-2 fas fa-lightbulb"></i>Problem Solver
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- My Experience - Right Side -->
-                <div class="p-8 bg-white rounded-xl border shadow-lg border-gray-100border-gray-700">
-                    <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
-                        <i class="mr-3 text-3xl text-green-500 fas fa-briefcase"></i>
-                        My Experience
-                    </h3>
-                    <div class="relative">
-                        <div class="absolute top-0 bottom-0 left-2 w-px bg-gray-200"></div>
-                        <div class="pl-6 space-y-6">
-                            <div class="relative">
-                                <span class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"></span>
-                                <p class="font-bold text-gray-900">Lead Application Developer</p>
-                                <p class="text-sm text-gray-500">Bluewind Asia</p>
-                                <p class="mt-1 text-xs font-semibold text-gray-400">2021</p>
-                            </div>
-                            <div class="relative">
-                                <span class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"></span>
-                                <p class="font-bold text-gray-900">Software Engineer</p>
-                                <p class="text-sm text-gray-500">GCM</p>
-                                <p class="mt-1 text-xs font-semibold text-gray-400">2020</p>
-                            </div>
-                            <div class="relative">
-                                <span class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"></span>
-                                <p class="font-bold text-gray-900">BS Information Technology</p>
-                                <p class="text-sm text-gray-500">Filamer Christian University</p>
-                                <p class="mt-1 text-xs font-semibold text-gray-400">2023</p>
-                            </div>
-                            <div class="relative">
-                                <span class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"></span>
-                                <p class="font-bold text-gray-900">Hello World! 👋</p>
-                                <p class="text-sm text-gray-500">Wrote my first line of code</p>
-                                <p class="mt-1 text-xs font-semibold text-gray-400">2022</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Social Links - Bottom -->
-            <div id="about-skills" class="p-8 bg-white rounded-xl border border-gray-100 border-gray-700 shadow-lg">
-                <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
-                    <i class="mr-3 text-3xl text-green-500 fas fa-link"></i>
-                    Social Links
-                </h3>
-                <div class="grid gap-4 md:grid-cols-3">
-                    <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md">
-                        <div class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg">
-                            <i class="text-2xl fab fa-linkedin-in"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-900">LinkedIn</p>
-                            <p class="text-sm text-gray-500">Connect with me professionally</p>
-                        </div>
-                        <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="https://github.com" target="_blank" rel="noopener" class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md">
-                        <div class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg">
-                            <i class="text-2xl fab fa-github"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-900">GitHub</p>
-                            <p class="text-sm text-gray-500">Explore my repositories</p>
-                        </div>
-                        <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                    <a href="mailto:joshiasimpas36@gmail.com" class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md">
-                        <div class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg">
-                            <i class="text-2xl fas fa-envelope"></i>
-                        </div>
-                        <div class="flex-1">
-                            <p class="font-semibold text-gray-900">Email</p>
-                            <p class="text-sm text-gray-600">joshiasimpas36@gmail.com</p>
-                        </div>
-                        <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-            </div>
+      <div class="container px-6 mx-auto">
+        <div class="mb-12 text-center">
+          <h2
+            class="inline-block mb-2 text-3xl font-bold text-gray-900 md:text-4xl"
+          >
+            About Me
+            <div class="mx-auto mt-2 w-20 h-1 bg-green-500"></div>
+          </h2>
         </div>
+
+        <!-- About Me and My Experience Layout -->
+        <div class="grid gap-8 lg:grid-cols-2 mb-8">
+          <!-- About Me - Left Side -->
+          <div
+            class="p-8 bg-white rounded-xl border shadow-lg border-gray-100border-gray-700"
+          >
+            <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
+              <i class="mr-3 text-3xl text-green-500 fas fa-user-circle"></i>
+              About Me
+            </h3>
+            <div class="space-y-4">
+              <p class="text-lg leading-relaxed text-gray-600">
+                I'm an Information Technology student passionate about software
+                development, system management, and emerging technologies. My
+                journey in IT has been focused on building practical solutions
+                and continuously learning new technologies.
+              </p>
+              <p class="text-lg leading-relaxed text-gray-600">
+                I specialize in frontend development with a strong foundation in
+                modern web technologies. My academic projects and hands-on
+                experiences have equipped me with problem-solving abilities and
+                adaptability in modern IT environments.
+              </p>
+              <div class="pt-4 border-t border-gray-200">
+                <div class="flex flex-wrap gap-3">
+                  <span
+                    class="px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded-full"
+                  >
+                    <i class="mr-2 fas fa-graduation-cap"></i>IT Student
+                  </span>
+                  <span
+                    class="px-4 py-2 text-sm font-medium text-blue-700 bg-blue-100 rounded-full"
+                  >
+                    <i class="mr-2 fas fa-code"></i>Developer
+                  </span>
+                  <span
+                    class="px-4 py-2 text-sm font-medium text-purple-700 bg-purple-100 rounded-full"
+                  >
+                    <i class="mr-2 fas fa-lightbulb"></i>Problem Solver
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- My Experience - Right Side -->
+          <div
+            class="p-8 bg-white rounded-xl border shadow-lg border-gray-100border-gray-700"
+          >
+            <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
+              <i class="mr-3 text-3xl text-green-500 fas fa-briefcase"></i>
+              My Experience
+            </h3>
+            <div class="relative">
+              <div
+                class="absolute top-0 bottom-0 left-2 w-px bg-gray-200"
+              ></div>
+              <div class="pl-6 space-y-6">
+                <div class="relative">
+                  <span
+                    class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"
+                  ></span>
+                  <p class="font-bold text-gray-900">
+                    Lead Application Developer
+                  </p>
+                  <p class="text-sm text-gray-500">Bluewind Asia</p>
+                  <p class="mt-1 text-xs font-semibold text-gray-400">2021</p>
+                </div>
+                <div class="relative">
+                  <span
+                    class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"
+                  ></span>
+                  <p class="font-bold text-gray-900">Software Engineer</p>
+                  <p class="text-sm text-gray-500">GCM</p>
+                  <p class="mt-1 text-xs font-semibold text-gray-400">2020</p>
+                </div>
+                <div class="relative">
+                  <span
+                    class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"
+                  ></span>
+                  <p class="font-bold text-gray-900">
+                    BS Information Technology
+                  </p>
+                  <p class="text-sm text-gray-500">
+                    Filamer Christian University
+                  </p>
+                  <p class="mt-1 text-xs font-semibold text-gray-400">2023</p>
+                </div>
+                <div class="relative">
+                  <span
+                    class="absolute top-1.5 -left-6 w-3 h-3 bg-gray-300 rounded-full ring-4 ring-white"
+                  ></span>
+                  <p class="font-bold text-gray-900">Hello World! 👋</p>
+                  <p class="text-sm text-gray-500">
+                    Wrote my first line of code
+                  </p>
+                  <p class="mt-1 text-xs font-semibold text-gray-400">2022</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Social Links - Bottom -->
+        <div
+          id="about-skills"
+          class="p-8 bg-white rounded-xl border border-gray-100 border-gray-700 shadow-lg"
+        >
+          <h3 class="flex items-center mb-6 text-2xl font-bold text-gray-900">
+            <i class="mr-3 text-3xl text-green-500 fas fa-link"></i>
+            Social Links
+          </h3>
+          <div class="grid gap-4 md:grid-cols-3">
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener"
+              class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md"
+            >
+              <div
+                class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg"
+              >
+                <i class="text-2xl fab fa-linkedin-in"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900">LinkedIn</p>
+                <p class="text-sm text-gray-500">
+                  Connect with me professionally
+                </p>
+              </div>
+              <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
+            </a>
+            <a
+              href="https://github.com/joshua662"
+              target="_blank"
+              rel="noopener"
+              class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md"
+            >
+              <div
+                class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg"
+              >
+                <i class="text-2xl fab fa-github"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900">GitHub</p>
+                <p class="text-sm text-gray-500">Explore my repositories</p>
+              </div>
+              <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
+            </a>
+            <a
+              href="mailto:joshiasimpas36@gmail.com"
+              class="flex gap-4 items-center p-4 bg-gray-50 rounded-lg border border-gray-200 transition-all duration-200 hover:border-green-500 hover:shadow-md"
+            >
+              <div
+                class="flex justify-center items-center w-12 h-12 text-white bg-gray-900 rounded-lg"
+              >
+                <i class="text-2xl fas fa-envelope"></i>
+              </div>
+              <div class="flex-1">
+                <p class="font-semibold text-gray-900">Email</p>
+                <p class="text-sm text-gray-600">joshiasimpas36@gmail.com</p>
+              </div>
+              <i class="text-gray-400 fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Resume Section -->
     <section id="resume" class="py-20 bg-gray-50">
-        <div class="container px-6 mx-auto">
-            <h2 class="mb-2 text-3xl font-bold text-center text-gray-900 md:text-4xl md:text-left">
-                Skills
-                <div class="mt-2 w-20 h-1 bg-green-500"></div>
-            </h2>
-            <div class="mt-12 max-w-6xl">
-                <!-- Professional Summary and Education Side by Side -->
-                <div class="grid gap-6 mb-6 md:grid-cols-2">
+      <div class="container px-6 mx-auto">
+        <h2
+          class="mb-2 text-3xl font-bold text-center text-gray-900 md:text-4xl md:text-left"
+        >
+          Skills
+          <div class="mt-2 w-20 h-1 bg-green-500"></div>
+        </h2>
+        <div class="mt-12 max-w-6xl">
+          <!-- Professional Summary and Education Side by Side -->
+          <div class="grid gap-6 mb-6 md:grid-cols-2">
+            <!-- Education -->
+          </div>
 
-                    <!-- Education -->
-                    
+          <!-- Technical Skills and Experience & Projects Side by Side -->
+          <div class="grid gap-6 md:grid-cols-2">
+            <!-- Tech Stack (Left) -->
+            <div class="p-8 bg-white rounded-lg shadow-sm">
+              <!-- Header -->
+              <div class="flex justify-between items-center mb-8">
+                <div class="flex items-center space-x-3">
+                  <h3 class="text-2xl font-bold text-gray-900">Tech Stack</h3>
+                </div>
+              </div>
+
+              <!-- Categories -->
+              <div class="space-y-6">
+                <!-- Frontend -->
+                <div>
+                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
+                    Frontend
+                  </h4>
+                  <div class="flex flex-wrap gap-3">
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >JavaScript</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >TypeScript</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Node.js</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Vue.js</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Tailwind CSS</span
+                    >
+                  </div>
                 </div>
 
-                <!-- Technical Skills and Experience & Projects Side by Side -->
-                <div class="grid gap-6 md:grid-cols-2">
-                    <!-- Tech Stack (Left) -->
-                    <div class="p-8 bg-white rounded-lg shadow-sm">
-                        <!-- Header -->
-                        <div class="flex justify-between items-center mb-8">
-                            <div class="flex items-center space-x-3">                                
-                                <h3 class="text-2xl font-bold text-gray-900">Tech Stack</h3>
-                            </div>
-                        </div>  
-
-                        <!-- Categories -->
-                        <div class="space-y-6">
-                            <!-- Frontend -->
-                            <div>
-                                <h4 class="mb-4 text-lg font-semibold text-gray-900">Frontend</h4>
-                                <div class="flex flex-wrap gap-3">
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">JavaScript</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">TypeScript</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Node.js</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Vue.js</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Tailwind CSS</span>
-                                </div>
-                            </div>
-
-                            <!-- Backend -->
-                            <div>
-                                <h4 class="mb-4 text-lg font-semibold text-gray-900">Backend</h4>
-                                <div class="flex flex-wrap gap-3">
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Node.js</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Python</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">PHP</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Laravel</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">MySQL</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Django</span>
-                                </div>
-                            </div>
-
-                            <!-- DevOps & Cloud -->
-                            <div>
-                                <h4 class="mb-4 text-lg font-semibold text-gray-900">Developer Tools</h4>
-                                <div class="flex flex-wrap gap-3">
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Git</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">GitHub</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">VS Code</span>
-                                    <span class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500">Discord</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience & Projects (Right) -->
-                    
+                <!-- Backend -->
+                <div>
+                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
+                    Backend
+                  </h4>
+                  <div class="flex flex-wrap gap-3">
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Node.js</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Python</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >PHP</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Laravel</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >MySQL</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Django</span
+                    >
+                  </div>
                 </div>
+
+                <!-- DevOps & Cloud -->
+                <div>
+                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
+                    Developer Tools
+                  </h4>
+                  <div class="flex flex-wrap gap-3">
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Git</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >GitHub</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >VS Code</span
+                    >
+                    <span
+                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
+                      >Discord</span
+                    >
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <!-- Experience & Projects (Right) -->
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-16 bg-white">
-        <div class="container px-6 mx-auto">
-            <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-                <div>
-                    <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">Projects</h2>
-                    <p class="mt-2 text-gray-600 max-w-2xl">
-                        A lean snapshot of recent work—quick to scan, easy to open.
-                    </p>
-                </div>
-                <div class="flex gap-3 text-sm text-gray-500">
-                </div>
-            </div>
-
-            <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                <!-- Project: Classroom Management System -->
-                <article class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50">
-                        <img src="image/Project.png" alt="Classroom Management System mockup" class="h-full w-full object-cover">
-                    </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Classroom Management System</h3>
-                            <p class="mt-1 text-sm text-gray-600">Lightweight web suite for class enrollment, grading, and attendance.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Python</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Django</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Tailwind</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">MySQL</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm">
-                            <!-- <a href="#" class="font-semibold text-green-600 hover:text-green-700">View live →</a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a> -->
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project: Gate Management System -->
-                <article class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50">
-                        <img src="image/Gate monitoring system.png" alt="Classroom Management System mockup" class="h-full w-full object-cover">
-                    </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Arduino Automated Gate</h3>
-                            <p class="mt-1 text-sm text-gray-600">Lightweight web suite for class enrollment, grading, and attendance.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Python</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Django</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Tailwind</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">MySQL</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm">
-                            <!-- <a href="#" class="font-semibold text-green-600 hover:text-green-700">View live →</a> -->
-                            <!-- <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a> -->
-                        </div>
-                    </div>
-                </article>
-
-
-                <!-- Project: System Monitoring Dashboard -->
-                <article class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50">
-                        <img src="image/Event Task manager.jpg" alt="Classroom Management System mockup" class="h-full w-full object-cover">
-                    </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Event Management</h3>
-                            <p class="mt-1 text-sm text-gray-600">Lightweight web suite for class enrollment, grading, and attendance.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Python</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Django</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">Tailwind</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">MySQL</span>
-                        </div>
-                        <div class="flex items-center gap-4 text-sm">
-                            <!-- <a href="#" class="font-semibold text-green-600 hover:text-green-700">View live →</a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a> -->
-                        </div>
-                    </div>
-                </article>
-
-                <article class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                    <div class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50">
-                        <video 
-                        class="h-full w-full object-cover" 
-                        controls 
-                        poster="image/loading screen.png"
-                        preload="metadata">
-                        <source src="video/DEMO PRESENTATION.mp4" type="video/mp4">
-                        </video>                   
-                     </div>
-                    <div class="mt-4 flex flex-col gap-3">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-900">Personal Portfolio</h3>
-                            <p class="mt-1 text-sm text-gray-600">Lightweight web suite for class enrollment, grading, and attendance.</p>
-                        </div>
-                        <div class="flex flex-wrap gap-2 text-xs text-gray-700">
-                            <span class="px-3 py-1 rounded-full border border-gray-200">HTML</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">CSS</span>
-                            <span class="px-3 py-1 rounded-full border border-gray-200">JavaScript</span>                      
-                         </div>
-                        <div class="flex items-center gap-4 text-sm">
-                            <!-- <a href="#" class="font-semibold text-green-600 hover:text-green-700">View live →</a>
-                            <a href="#" class="text-gray-500 hover:text-gray-700"><i class="fab fa-github"></i></a> -->
-                        </div>
-                    </div>
-                </article>
-
-
-
-            </div>
+      <div class="container px-6 mx-auto">
+        <div
+          class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+              Projects
+            </h2>
+            <p class="mt-2 text-gray-600 max-w-2xl">
+              A lean snapshot of recent work—quick to scan, easy to open.
+            </p>
+          </div>
+          <div class="flex gap-3 text-sm text-gray-500"></div>
         </div>
+
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Project: Classroom Management System -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-project-modal="project-1"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Project.png"
+                alt="Classroom Management System mockup"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Classroom Management System
+              </h3>
+            </div>
+          </article>
+
+          <!-- Project: Gate Management System -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-project-modal="project-2"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Gate monitoring system.png"
+                alt="Arduino Automated Gate mockup"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Arduino Automated Gate
+              </h3>
+            </div>
+          </article>
+
+          <!-- Project: Event Management -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-project-modal="project-3"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Event Task manager.jpg"
+                alt="Event Management Suite mockup"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Event Management
+              </h3>
+            </div>
+          </article>
+
+          <!-- Project: Personal Portfolio -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-project-modal="project-4"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <video
+                class="h-full w-full object-contain"
+                controls
+                poster="image/loading screen.png"
+                preload="metadata"
+              >
+                <source src="video/DEMO PRESENTATION.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Personal Portfolio
+              </h3>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-
-    <!-- Blog Section -->
-    <section id="blog" class="py-20 bg-gray-50">
-        <div class="container px-6 mx-auto">
-            <h2 class="mb-2 text-3xl font-bold text-center text-gray-900 md:text-4xl md:text-left">
-                Certificates
-                <div class="mt-2 w-20 h-1 bg-green-500"></div>
+    <!-- Certificates Section -->
+    <section id="blog" class="py-16 bg-gray-50">
+      <div class="container px-6 mx-auto">
+        <div
+          class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 md:text-4xl">
+              Certificates
             </h2>
-            <p class="mt-4 mb-2 max-w-2xl text-gray-600">
-                My recent certificates provide insights, tutorials, and thoughts on technology, development, and IT trends.
+            <p class="mt-2 text-gray-600 max-w-2xl">
+              A lean snapshot of recent credentials—quick to scan, easy to open.
             </p>
+          </div>
+          <div class="flex gap-3 text-sm text-gray-500"></div>
+        </div>
 
+        <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <!-- Certificate: Programming Foundations -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-cert-modal="cert-1"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Programming foundations.jpg"
+                alt="Programming Foundations Certificate"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Programming Foundations: Fundamentals
+              </h3>
+            </div>
+          </article>
 
-     <!-- Blog Tutorials Section - Recent Certifications -->
-     <section id="blog-tutorials" class="pt-10 pb-20 bg-gray-50">
-         <div class="container px-6 mx-auto">
-             <div class="p-8 mx-auto max-w-4xl bg-white rounded-lg shadow-sm">
-                 <!-- Header -->
-                 <div class="flex justify-between items-center mb-6">
-                     <div class="flex items-center space-x-3">
-                         <div class="flex justify-center items-center w-8 h-8 bg-green-600 rounded-full">
-                             <i class="text-sm text-gray-50 fas fa-check"></i>
-                         </div>
-                         <h2 class="text-2xl font-bold text-gray-900">Recent Certifications</h2>
-                     </div>
-                 </div>
+          <!-- Certificate: Incident Response Leadership -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-cert-modal="cert-2"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Incident Respone Leadership for Cybersecurity Managers.jpg"
+                alt="Incident Response Leadership Certificate"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Incident Response Leadership
+              </h3>
+            </div>
+          </article>
 
-                 <!-- Certifications List -->
-                 <div class="space-y-6">
-                    <!-- Certification 1 - Programming Foundations -->
-                    <div class="overflow-hidden bg-white rounded-lg shadow-sm transition-shadow hover:shadow-md">
-                        <div class="flex flex-col md:flex-row">
-                            <!-- Certificate Image -->
-                            <div class="md:w-1/3 cursor-pointer min-h-[200px] md:min-h-0" data-cert-modal="cert-1">
-                                <img src="image/Programming foundations.jpg" alt="Programming Foundations Certificate" class="w-full h-full object-cover min-h-[200px]">
-                            </div>
-                            <!-- Certificate Details -->
-                            <div class="flex flex-col justify-between p-6 md:w-2/3">
-                                <div>
-                                    <h3 class="mb-2 text-xl font-bold text-gray-900">Programming Foundations: Fundamentals</h3>
-                                    <p class="mb-3 text-sm text-gray-500">LinkedIn Learning • Dec 18, 2025</p>
-                                    <p class="mb-4 text-gray-600">This comprehensive course covers the fundamental concepts of programming, including variables, data types, control structures, functions, and basic algorithms.</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming</span>
-                                        <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming Foundations</span>
-                                    </div>
-                                </div>
-                                <div class="flex justify-center">
-                                <a href="https://www.linkedin.com/learning/certificates/e1b44eea360fadd63a356e41b2a0329e67c32e939fea2d3375fed252fb466630" 
-                                    target="_blank" 
-                                    rel="noopener"
-                                    class="flex justify-center items-center gap-2 text-gray-600 bg-gray-100 rounded-full px-4 py-2 transition-colors hover:bg-green-500">
-                                    <i class="fab fa-linkedin"></i>
-                                    <span>View Details</span>
-                                </a>
-                                </div>
+          <!-- Certificate: Cybersecurity Audit and Assessment -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-cert-modal="cert-3"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Cybersecurity Audit and Assessment Fundamentals.jpg"
+                alt="Cybersecurity Audit and Assessment Certificate"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Cybersecurity Audit & Assessment
+              </h3>
+            </div>
+          </article>
 
-                            </div>
-                        </div>
-                    </div>
-                     <!-- Certification 2 - Incident Response Leadership -->
-                     <div class="space-y-6">
-                        <!-- Certification 1 - Programming Foundations -->
-                        <div class="overflow-hidden bg-white rounded-lg shadow-sm transition-shadow hover:shadow-md">
-                            <div class="flex flex-col md:flex-row">
-                                <!-- Certificate Image -->
-                                <div class="md:w-1/3 cursor-pointer min-h-[200px] md:min-h-0" data-cert-modal="cert-1">
-                                    <img src="image/Incident Respone Leadership for Cybersecurity Managers.jpg" alt="Programming Foundations Certificate" class="w-full h-full object-cover min-h-[200px]">
-                                </div>
-                                <!-- Certificate Details -->
-                                <div class="flex flex-col justify-between p-6 md:w-2/3">
-                                    <div>
-                                        <h3 class="mb-2 text-xl font-bold text-gray-900">Incident Response Leadership for Cybersecurity Manager: From Incident Planning to Business Continuity.</h3>
-                                        <p class="mb-3 text-sm text-gray-500">LinkedIn Learning • Dec 18, 2025</p>
-                                        <p class="mb-4 text-gray-600">This comprehensive course covers the fundamental concepts of programming, including variables, data types, control structures, functions, and basic algorithms.</p>
-                                        <div class="flex flex-wrap gap-2 mb-4">
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming</span>
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming Foundations</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <a href="https://www.linkedin.com/learning/certificates/e1b44eea360fadd63a356e41b2a0329e67c32e939fea2d3375fed252fb466630" 
-                                        target="_blank" 
-                                        rel="noopener"
-                                        class="flex justify-center items-center gap-2 text-gray-600 bg-gray-100 rounded-full px-3 py-2 transition-colors hover:bg-green-500">
-                                        <i class="fab fa-linkedin"></i>
-                                        <span>View Details</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+          <!-- Certificate: Cybersecurity Foundations GRC -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-cert-modal="cert-4"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Cybersecurity Foundations.jpg"
+                alt="Cybersecurity Foundations Certificate"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Cybersecurity Foundations: GRC
+              </h3>
+            </div>
+          </article>
 
-                     <!-- Certification 3 - Cybersecurity Audit and Assessment -->
-                     <div class="space-y-6">
-                        <!-- Certification 1 - Programming Foundations -->
-                        <div class="overflow-hidden bg-white rounded-lg shadow-sm transition-shadow hover:shadow-md">
-                            <div class="flex flex-col md:flex-row">
-                                <!-- Certificate Image -->
-                                <div class="md:w-1/3 cursor-pointer min-h-[200px] md:min-h-0" data-cert-modal="cert-1">
-                                    <img src="image/Cybersecurity Audit and Assessment Fundamentals.jpg" alt="Programming Foundations Certificate" class="w-full h-full object-cover min-h-[200px]">
-                                </div>
-                                <!-- Certificate Details -->
-                                <div class="flex flex-col justify-between p-6 md:w-2/3">
-                                    <div>
-                                        <h3 class="mb-2 text-xl font-bold text-gray-900">Cybersecurity Audit and Assessment Fundamentals for GRC Analysts: From Vendor Risk to Incident Coordination.</h3>
-                                        <p class="mb-3 text-sm text-gray-500">LinkedIn Learning • Dec 18, 2025</p>
-                                        <p class="mb-4 text-gray-600">This comprehensive course covers the fundamental concepts of programming, including variables, data types, control structures, functions, and basic algorithms.</p>
-                                        <div class="flex flex-wrap gap-2 mb-4">
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming</span>
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming Foundations</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <a href="https://www.linkedin.com/learning/certificates/e1b44eea360fadd63a356e41b2a0329e67c32e939fea2d3375fed252fb466630" 
-                                        target="_blank" 
-                                        rel="noopener"
-                                        class="flex justify-center items-center gap-2 text-gray-600 bg-gray-100 rounded-full px-3 py-2 transition-colors hover:bg-green-500">
-                                        <i class="fab fa-linkedin"></i>
-                                        <span>View Details</span>
-                                        </a>
-                                    </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                     <!-- Certification 4 - Cybersecurity Foundations GRC -->
-                     <div class="space-y-6">
-                        <!-- Certification 1 - Programming Foundations -->
-                        <div class="overflow-hidden bg-white rounded-lg shadow-sm transition-shadow hover:shadow-md">
-                            <div class="flex flex-col md:flex-row">
-                                <!-- Certificate Image -->
-                                <div class="md:w-1/3 cursor-pointer min-h-[200px] md:min-h-0" data-cert-modal="cert-1">
-                                    <img src="image/Cybersecurity Foundations.jpg" alt="Programming Foundations Certificate" class="w-full h-full object-cover min-h-[200px]">
-                                </div>
-                                <!-- Certificate Details -->
-                                <div class="flex flex-col justify-between p-6 md:w-2/3">
-                                    <div>
-                                        <h3 class="mb-2 text-xl font-bold text-gray-900">Programming Foundations: Fundamentals</h3>
-                                        <p class="mb-3 text-sm text-gray-500">LinkedIn Learning • Dec 18, 2025</p>
-                                        <p class="mb-4 text-gray-600">This comprehensive course covers the fundamental concepts of programming, including variables, data types, control structures, functions, and basic algorithms.</p>
-                                        <div class="flex flex-wrap gap-2 mb-4">
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming</span>
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming Foundations</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                    <a href="https://www.linkedin.com/learning/certificates/e1b44eea360fadd63a356e41b2a0329e67c32e939fea2d3375fed252fb466630" 
-                                        target="_blank" 
-                                        rel="noopener"
-                                        class="flex justify-center items-center gap-2 text-gray-600 bg-gray-100 rounded-full px-4 py-2 transition-colors hover:bg-green-500">
-                                        <i class="fab fa-linkedin"></i>
-                                        <span>View Details</span>
-                                    </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                     <!-- Certification 5 - Threat Modeling -->
-                     <div class="space-y-6">
-                        <!-- Certification 1 - Programming Foundations -->
-                        <div class="overflow-hidden bg-white rounded-lg shadow-sm transition-shadow hover:shadow-md">
-                            <div class="flex flex-col md:flex-row">
-                                <!-- Certificate Image -->
-                                <div class="md:w-1/3 cursor-pointer min-h-[200px] md:min-h-0" data-cert-modal="cert-1">
-                                    <img src="image/Learning Threat Modeling for Security.jpg" alt="Programming Foundations Certificate" class="w-full h-full object-cover min-h-[200px]">
-                                </div>
-                                <!-- Certificate Details -->
-                                <div class="flex flex-col justify-between p-6 md:w-2/3">
-                                    <div>
-                                        <h3 class="mb-2 text-xl font-bold text-gray-900">Programming Foundations: Fundamentals</h3>
-                                        <p class="mb-3 text-sm text-gray-500">LinkedIn Learning • Dec 18, 2025</p>
-                                        <p class="mb-4 text-gray-600">This comprehensive course covers the fundamental concepts of programming, including variables, data types, control structures, functions, and basic algorithms.</p>
-                                        <div class="flex flex-wrap gap-2 mb-4">
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming</span>
-                                            <span class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded">Programming Foundations</span>
-                                        </div>
-                                    </div>
-                                    <div class="flex justify-center">
-                                    <a href="https://www.linkedin.com/learning/certificates/e1b44eea360fadd63a356e41b2a0329e67c32e939fea2d3375fed252fb466630" 
-                                        target="_blank" 
-                                        rel="noopener"
-                                        class="flex justify-center items-center gap-2 text-gray-600 bg-gray-100 rounded-full px-4 py-2 transition-colors hover:bg-green-500">
-                                        <i class="fab fa-linkedin"></i>
-                                        <span>View Details</span>
-                                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                 </div>
-             </div>
-         </div>
-     </section>
-
-    
+          <!-- Certificate: Threat Modeling -->
+          <article
+            class="flex flex-col h-full rounded-xl border border-gray-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-md cursor-pointer"
+            data-cert-modal="cert-5"
+          >
+            <div
+              class="aspect-video w-full overflow-hidden rounded-lg border border-gray-100 bg-gray-50"
+            >
+              <img
+                src="image/Learning Threat Modeling for Security.jpg"
+                alt="Threat Modeling Certificate"
+                class="h-full w-full object-contain"
+              />
+            </div>
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold text-gray-900">
+                Learning Threat Modeling for Security
+              </h3>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-24 bg-gray-50">
-        <div class="container px-6 mx-auto max-w-5xl">
-            <!-- Title -->
-            <div class="mb-16 text-center">
-                <h2 class="mb-4 text-4xl font-bold md:text-5xl">
-                    <span class="text-blacktext-white">Contact</span>
-                    <span class="text-blacktext-white">Me</span>
-                </h2>
-            </div>
-
-            <!-- Form Layout -->    
-            <form id="contact-form" class="grid gap-8 md:grid-cols-2">
-                <!-- Left Column: Input Fields -->
-                <div class="space-y-6">
-                    <input type="text" id="name" name="name" class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Full Name" required>
-                    
-                    <input type="email" id="email" name="email" class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Your Email Address" required>
-                    
-                    <input type="tel" id="phone" name="phone" class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Phone Number">
-                    
-                    <input type="text" id="subject" name="subject" class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Subject" required>
-                </div>
-
-                <!-- Right Column: Text Area and Button -->
-                <div class="flex flex-col">
-                    <textarea id="message" name="message" rows="8" class="px-4 py-3 mb-6 w-full text-black rounded-lg border-2 border-green-500 resize-none bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50" placeholder="Your Message" required></textarea>
-                    
-                    <!-- Success/Error Messages -->
-                    <div id="form-message" class="mb-4 hidden p-4 rounded-lg"></div>
-                    
-                    <button type="submit" id="submit-btn" class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 self-end shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]">
-                        <span id="btn-text">Send Message</span>
-                        <span id="btn-loading" class="hidden">
-                            <i class="fas fa-spinner fa-spin mr-2"></i>Sending...
-                        </span>
-                    </button>
-                </div>
-            </form>
+      <div class="container px-6 mx-auto max-w-5xl">
+        <!-- Title -->
+        <div class="mb-16 text-center">
+          <h2 class="mb-4 text-4xl font-bold md:text-5xl">
+            <span class="text-blacktext-white">Contact</span>
+            <span class="text-blacktext-white">Me</span>
+          </h2>
         </div>
-    </section>
 
-    
+        <!-- Form Layout -->
+        <form id="contact-form" class="grid gap-8 md:grid-cols-2">
+          <!-- Left Column: Input Fields -->
+          <div class="space-y-6">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              placeholder="Full Name"
+              required
+            />
+
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              placeholder="Your Email Address"
+              required
+            />
+
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              placeholder="Phone Number"
+            />
+
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="px-4 py-3 w-full text-black rounded-lg border-2 border-green-500 bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              placeholder="Subject"
+              required
+            />
+          </div>
+
+          <!-- Right Column: Text Area and Button -->
+          <div class="flex flex-col">
+            <textarea
+              id="message"
+              name="message"
+              rows="8"
+              class="px-4 py-3 mb-6 w-full text-black rounded-lg border-2 border-green-500 resize-none bg-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+              placeholder="Your Message"
+              required
+            ></textarea>
+
+            <!-- Success/Error Messages -->
+            <div id="form-message" class="mb-4 hidden p-4 rounded-lg"></div>
+
+            <button
+              type="submit"
+              id="submit-btn"
+              class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 self-end shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]"
+            >
+              <span id="btn-text">Send Message</span>
+              <span id="btn-loading" class="hidden">
+                <i class="fas fa-spinner fa-spin mr-2"></i>Sending...
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
 
     <!-- Footer -->
     <footer class="py-8 text-white bg-gray-900bg-black">
-        <div class="container px-6 mx-auto text-center">
-            <div class="flex flex-col justify-center items-center md:flex-row">
-                <p class="mb-4 text-lg text-gray-400 md:mb-0">
-                    &copy; 2024 Josh Simpas. All rights reserved.
-                </p>
-                <!-- <div class="flex space-x-6">
+      <div class="container px-6 mx-auto text-center">
+        <div class="flex flex-col justify-center items-center md:flex-row">
+          <p class="mb-4 text-lg text-gray-400 md:mb-0">
+            &copy; 2024 Josh Simpas. All rights reserved.
+          </p>
+          <!-- <div class="flex space-x-6">
                     <a href="#" class="text-gray-400 transition-colors hover:text-green-500">
                         <i class="text-xl fab fa-linkedin-in"></i>
                     </a>
@@ -713,13 +845,584 @@
                         <i class="text-xl fas fa-envelope"></i>
                     </a>
                 </div> -->
-            </div>
         </div>
+      </div>
     </footer>
 
- 
+    <!-- Certification Modals -->
+    <div
+      id="cert-1-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="cert-1-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="cert-1"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Programming foundations.jpg"
+              alt="Programming Foundations Certificate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Programming Foundations: Fundamentals
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">LinkedIn Learning</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              This comprehensive course covers the fundamental concepts of
+              programming, including variables, data types, control structures,
+              functions, and basic algorithms.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Programming</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Programming Foundations</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div
+      id="cert-2-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="cert-2-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="cert-2"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Incident Respone Leadership for Cybersecurity Managers.jpg"
+              alt="Incident Response Leadership Certificate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Incident Response Leadership for Cybersecurity Managers
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">LinkedIn Learning</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              Learned how to design, implement, and lead incident response
+              strategies, ensuring business continuity and minimal impact during
+              cybersecurity incidents.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Incident Response</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Cybersecurity Leadership</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Business Continuity</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cert-3-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="cert-3-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="cert-3"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Cybersecurity Audit and Assessment Fundamentals.jpg"
+              alt="Cybersecurity Audit and Assessment Certificate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Cybersecurity Audit and Assessment Fundamentals
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">LinkedIn Learning</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              Gained insights into planning and conducting cybersecurity audits,
+              assessing governance, risk management, and compliance (GRC)
+              controls, and coordinating incident risk.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Cybersecurity Audit</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >GRC</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Vendor Risk Management</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cert-4-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="cert-4-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="cert-4"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Cybersecurity Foundations.jpg"
+              alt="Cybersecurity Foundations Certificate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Cybersecurity Foundations: GRC
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">LinkedIn Learning</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              Explored the fundamentals of Cybersecurity GRC, covering
+              frameworks, risk assessments, security policies, compliance
+              standards, and security controls.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Cybersecurity</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >GRC</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Risk Assessment</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="cert-5-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="cert-5-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="cert-5"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Learning Threat Modeling for Security.jpg"
+              alt="Threat Modeling Certificate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Learning Threat Modeling for Security
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">LinkedIn Learning</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              Acquired key concepts of threat modeling, including identifying
+              potential security threats, defining security requirements, and
+              implementing mitigations.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Threat Modeling</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Application Security</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Risk Mitigation</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Modals -->
+    <div
+      id="project-1-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="project-1-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="project-1"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Project.png"
+              alt="Classroom Management System"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Classroom Management System
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Web Application</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              A lightweight web suite for student enrollment, grading, and
+              attendance tracking, designed to streamline school administrative
+              tasks.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Python</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Django</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >MySQL</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="project-2-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="project-2-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="project-2"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Gate monitoring system.png"
+              alt="Arduino Automated Gate"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Arduino Automated Gate
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Hardware IoT Project</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              An Arduino-powered gate monitoring and automation system that
+              secures entryways using RFID sensors, real-time logging, and
+              mechanical gate controls.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Arduino</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >C++</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >RFID Sensors</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Hardware Integration</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="project-3-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="project-3-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="project-3"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <img
+              src="image/Event Task manager.jpg"
+              alt="Event Management"
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+            />
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Event Management
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Web Application</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              A task and event manager designed to schedule, assign, and
+              coordinate events, tasks, and deadlines within teams seamlessly.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Node.js</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Express</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >MongoDB</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="project-4-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="project-4-modal-content"
+        class="relative max-w-6xl w-full max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="project-4"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+          aria-label="Close modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="flex flex-col md:flex-row">
+          <div
+            class="md:w-1/2 bg-gray-100 flex items-center justify-center p-4"
+          >
+            <video
+              class="max-h-[400px] md:max-h-[650px] w-full object-contain rounded shadow-sm"
+              controls
+              poster="image/loading screen.png"
+              preload="metadata"
+            >
+              <source src="video/DEMO PRESENTATION.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="md:w-1/2 p-6">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              Personal Portfolio
+            </h3>
+            <p class="text-sm text-gray-500 mb-4">Frontend Website</p>
+            <p class="text-gray-600 mb-6 leading-relaxed text-sm">
+              A professional personal portfolio website showcasing academic
+              projects, certifications, technical skills, and contact
+              information.
+            </p>
+            <div class="mb-6">
+              <h4
+                class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
+              >
+                Technologies Used
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >HTML</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 text-sm text-gray-700 bg-gray-100 rounded"
+                  >Tailwind CSS</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- JavaScript -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

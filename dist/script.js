@@ -89,95 +89,145 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// ===== Certification Modals =====
+// ===== Project & Certificate Modals =====
 
-/**
- * Opens a certification modal by ID.
- * @param {string} certId - The certification identifier (e.g., 'cert-1').
- */
-function openModal(certId) {
-    const modal = document.getElementById(`${certId}-modal`);
-    const modalContent = document.getElementById(`${certId}-modal-content`);
-    
-    if (modal) {
-        modal.classList.remove('hidden');
-        modal.classList.add('flex'); // Add flex for centering
-        
-        // Trigger modal animation
-        if (modalContent) {
-            // Small delay to ensure the modal is visible before animation
-            setTimeout(() => {
-                modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-        
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
+let activeModalId = null;
+let suppressOverlayClose = false;
+
+function getModalElements(modalId) {
+    return {
+        modal: document.getElementById(`${modalId}-modal`),
+        modalContent: document.getElementById(`${modalId}-modal-content`)
+    };
+}
+
+function resetModalContent(modalContent) {
+    if (!modalContent) return;
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+}
+
+function showModalContent(modalContent) {
+    if (!modalContent) return;
+    modalContent.classList.remove('scale-95', 'opacity-0');
+    modalContent.classList.add('scale-100', 'opacity-100');
 }
 
 /**
- * Closes a certification modal by ID.
- * @param {string} certId - The certification identifier (e.g., 'cert-1').
+ * Opens a modal by ID.
+ * @param {string} modalId - The modal identifier (e.g., 'cert-1', 'project-1').
  */
-function closeModal(certId) {
-    const modal = document.getElementById(`${certId}-modal`);
-    const modalContent = document.getElementById(`${certId}-modal-content`);
-    
-    if (modal) {
-        // Animate out first
-        if (modalContent) {
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
-            
-            // Wait for animation to complete before hiding
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = ''; // Restore scrolling
-            }, 300); // Match the transition duration
-        } else {
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = ''; // Restore scrolling
+function openModal(modalId) {
+    if (!modalId) return;
+
+    if (activeModalId && activeModalId !== modalId) {
+        closeModal(activeModalId, true);
+    }
+
+    const { modal, modalContent } = getModalElements(modalId);
+    if (!modal) return;
+
+    suppressOverlayClose = true;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    showModalContent(modalContent);
+
+    document.body.style.overflow = 'hidden';
+    activeModalId = modalId;
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            suppressOverlayClose = false;
+        });
+    });
+}
+
+/**
+ * Closes a modal by ID.
+ * @param {string} modalId - The modal identifier (e.g., 'cert-1', 'project-1').
+ * @param {boolean} immediate - Skip the close animation.
+ */
+function closeModal(modalId, immediate = false) {
+    const { modal, modalContent } = getModalElements(modalId);
+    if (!modal) return;
+
+    const finishClose = () => {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+        resetModalContent(modalContent);
+
+        if (activeModalId === modalId) {
+            activeModalId = null;
         }
+
+        if (!document.querySelector('.portfolio-modal:not(.hidden)')) {
+            document.body.style.overflow = '';
+        }
+    };
+
+    if (immediate) {
+        finishClose();
+        return;
+    }
+
+    resetModalContent(modalContent);
+    setTimeout(finishClose, 300);
+}
+
+function closeActiveModal() {
+    if (activeModalId) {
+        closeModal(activeModalId);
     }
 }
 
 // Initialize modals when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Attach click handlers to certification image cards
-    document.querySelectorAll('[data-cert-modal]').forEach(card => {
+    document.querySelectorAll('[data-cert-modal], [data-project-modal]').forEach(card => {
         card.addEventListener('click', function(e) {
-            const certId = this.getAttribute('data-cert-modal');
-            if (certId) {
+            if (e.target.closest('a') || e.target.closest('video') || e.target.closest('button')) {
+                return;
+            }
+
+            const modalId = this.getAttribute('data-cert-modal') || this.getAttribute('data-project-modal');
+            if (modalId) {
                 e.preventDefault();
                 e.stopPropagation();
-                openModal(certId);
+                openModal(modalId);
             }
         });
     });
 
-    // Close modal when clicking on the overlay (dark background)
-    document.querySelectorAll('[id$="-modal"]').forEach(modal => {
+    document.querySelectorAll('[data-close-modal]').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const modalId = this.getAttribute('data-close-modal');
+            if (modalId) {
+                closeModal(modalId);
+            }
+        });
+    });
+
+    document.querySelectorAll('.portfolio-modal').forEach(modal => {
         modal.addEventListener('click', function(e) {
-            // Close if clicking directly on the overlay, not the modal content
-            if (e.target === modal) {
-                const id = modal.id.replace('-modal', '');
-                closeModal(id);
-            }
+            if (suppressOverlayClose) return;
+            if (e.target !== modal) return;
+
+            const modalId = modal.id.replace(/-modal$/, '');
+            closeModal(modalId);
         });
+
+        const modalContent = modal.querySelector('[id$="-modal-content"]');
+        if (modalContent) {
+            modalContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     });
 
-    // Close modal on Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            document.querySelectorAll('[id$="-modal"]').forEach(modal => {
-                if (!modal.classList.contains('hidden')) {
-                    const id = modal.id.replace('-modal', '');
-                    closeModal(id);
-                }
-            });
+            closeActiveModal();
         }
     });
 });
