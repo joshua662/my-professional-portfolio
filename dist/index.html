@@ -24,7 +24,9 @@
             >
               <span class="text-lg font-bold text-white">J</span>
             </div>
-            <span class="text-xl font-semibold text-gray-900">Josh Simpas</span>
+            <span class="text-xl font-semibold text-gray-900"
+              >Joshua Simpas</span
+            >
           </a>
 
           <!-- Desktop Navigation -->
@@ -162,15 +164,16 @@
 
           <!-- Hero Content -->
           <div class="flex-1 w-full text-center md:text-left">
-            <span
-              class="inline-block px-3 py-1 mb-2 text-sm font-semibold tracking-wide text-gray-500 uppercase bg-green-100 rounded-full"
-              >Frontend Developer \ Tambay</span
-            >
             <h1
-              class="mt-4 mb-6 text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl xl:text-7xl"
+              class="mb-3 text-4xl font-bold text-gray-900 sm:text-5xl lg:text-6xl xl:text-7xl"
             >
               Josh Simpas
             </h1>
+            <div class="mb-6 flex items-center justify-center md:justify-start">
+              <span class="text-xl sm:text-2xl font-semibold text-gray-700">
+                I'm a <span id="typing-role" class="text-gray-900 border-b-2 border-green-500 pb-0.5"></span><span class="typing-cursor font-light text-green-500 animate-pulse ml-0.5">|</span>
+              </span>
+            </div>
             <p
               class="mb-8 mx-auto max-w-2xl text-base leading-relaxed text-gray-600 sm:text-lg md:mx-0 md:max-w-none lg:max-w-3xl"
             >
@@ -235,12 +238,12 @@
                 journey in IT has been focused on building practical solutions
                 and continuously learning new technologies.
               </p>
-              <p class="text-lg leading-relaxed text-gray-600">
+              <!-- <p class="text-lg leading-relaxed text-gray-600">
                 I specialize in frontend development with a strong foundation in
                 modern web technologies. My academic projects and hands-on
                 experiences have equipped me with problem-solving abilities and
                 adaptability in modern IT environments.
-              </p>
+              </p> -->
               <div class="pt-4 border-t border-gray-200">
                 <div class="flex flex-wrap gap-3">
                   <span
@@ -394,111 +397,284 @@
           class="mb-2 text-3xl font-bold text-center text-gray-900 md:text-4xl md:text-left"
         >
           Skills
-          <div class="mt-2 w-20 h-1 bg-green-500"></div>
+          <div class="mt-2 w-20 h-1 bg-gray-800"></div>
         </h2>
-        <div class="mt-12 max-w-6xl">
+        <div class="mt-12 w-full">
           <!-- Professional Summary and Education Side by Side -->
           <div class="grid gap-6 mb-6 md:grid-cols-2">
             <!-- Education -->
           </div>
 
           <!-- Technical Skills and Experience & Projects Side by Side -->
-          <div class="grid gap-6 md:grid-cols-2">
+          <div class="grid gap-6">
             <!-- Tech Stack (Left) -->
             <div class="p-8 bg-white rounded-lg shadow-sm">
               <!-- Header -->
               <div class="flex justify-between items-center mb-8">
-                <div class="flex items-center space-x-3">
+                <!-- <div class="flex items-center space-x-3">
                   <h3 class="text-2xl font-bold text-gray-900">Tech Stack</h3>
-                </div>
+                </div> -->
               </div>
 
-              <!-- Categories -->
-              <div class="space-y-6">
+              <!-- Categories: one column per group, square icon cards per skill -->
+              <div
+                class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0"
+              >
                 <!-- Frontend -->
-                <div>
-                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
-                    Frontend
+                <div
+                  class="min-w-0 lg:px-4 lg:first:pl-0 lg:border-r lg:border-gray-200"
+                >
+                  <h4
+                    class="mb-4 text-lg font-semibold text-center text-gray-900"
+                  >
+                    Frontend Frameworks
                   </h4>
-                  <div class="flex flex-wrap gap-3">
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >JavaScript</span
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >TypeScript</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/vuejs.png"
+                        alt="Vue.js"
+                      />
+                      <span class="skill-card__label">Vue.js</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Node.js</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/office/80/react.png"
+                        alt="React"
+                      />
+                      <span class="skill-card__label">React</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Vue.js</span
-                    >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Tailwind CSS</span
-                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/tailwind_css.png"
+                        alt="Tailwind CSS"
+                      />
+                      <span class="skill-card__label">Tailwind CSS</span>
+                    </div>
                   </div>
                 </div>
 
                 <!-- Backend -->
-                <div>
-                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
-                    Backend
+                <div class="min-w-0 lg:px-4 lg:border-r lg:border-gray-200">
+                  <h4
+                    class="mb-4 text-lg font-semibold text-center text-gray-900"
+                  >
+                    Backend Frameworks
                   </h4>
-                  <div class="flex flex-wrap gap-3">
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Node.js</span
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Python</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/node-js.png"
+                        alt="Node.js"
+                      />
+                      <span class="skill-card__label">Node.js</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >PHP</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/python.png"
+                        alt="Python"
+                      />
+                      <span class="skill-card__label">Python</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Laravel</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/officel/80/php-logo.png"
+                        alt="PHP"
+                      />
+                      <span class="skill-card__label">PHP</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none hidden backend-extra-skill"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >MySQL</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/laravel.png"
+                        alt="Laravel"
+                      />
+                      <span class="skill-card__label">Laravel</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none hidden backend-extra-skill"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Django</span
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/color/48/django.png"
+                        alt="Django"
+                      />
+                      <span class="skill-card__label">Django</span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    data-skill-modal="backend-skills"
+                    class="mt-6 mx-auto block text-sm font-semibold text-gray-700 underline hover:text-gray-900"
+                  >
+                    See all
+                  </button>
+                </div>
+
+                <!-- Developer Tools -->
+                <div class="min-w-0 lg:px-4 lg:border-r lg:border-gray-200">
+                  <h4
+                    class="mb-4 text-lg font-semibold text-center text-gray-900"
+                  >
+                    Developer Tools
+                  </h4>
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/git.png"
+                        alt="Git"
+                      />
+                      <span class="skill-card__label">Git</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/github.png"
+                        alt="GitHub"
+                      />
+                      <span class="skill-card__label">GitHub</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/visual-studio-code-2019.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">VS Code</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none hidden tools-extra-skill"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/color/96/npm.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">Npm</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none hidden tools-extra-skill"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/visual-studio.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">Visual Studio</span>
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    data-skill-modal="developer-tools"
+                    class="mt-6 mx-auto block text-sm font-semibold text-gray-700 underline hover:text-gray-900"
+                  >
+                    See all
+                  </button>
+                </div>
+
+                <!-- Operating Systems -->
+                <div class="min-w-0 lg:px-4 lg:border-r lg:border-gray-200">
+                  <h4
+                    class="mb-4 text-lg font-semibold text-center text-gray-900"
+                  >
+                    Operating Systems
+                  </h4>
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/windows-10.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">Windows</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/color/96/kali-linux.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">Kali</span>
+                    </div>
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
+                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/fluency/96/fedora.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">Fedora</span>
+                    </div>
                   </div>
                 </div>
 
-                <!-- DevOps & Cloud -->
-                <div>
-                  <h4 class="mb-4 text-lg font-semibold text-gray-900">
-                    Developer Tools
+                <!-- Databases -->
+                <div class="min-w-0 lg:pl-4">
+                  <h4
+                    class="mb-4 text-lg font-semibold text-center text-gray-900"
+                  >
+                    Database
                   </h4>
-                  <div class="flex flex-wrap gap-3">
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Git</span
+                  <div class="flex flex-col items-center gap-4">
+                    <div
+                      class="skill-card bg-transparent shadow-none"
+                      tabindex="0"
                     >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >GitHub</span
-                    >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >VS Code</span
-                    >
-                    <span
-                      class="px-4 py-2 text-sm font-medium text-gray-700 rounded-lg border border-gray-300 transition-colors hover:border-green-500 hover:text-green-500"
-                      >Discord</span
-                    >
+                      <img
+                        class="skill-card__icon"
+                        src="https://img.icons8.com/color/96/mysql-logo.png"
+                        alt=""
+                      />
+                      <span class="skill-card__label">MySQL</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -812,7 +988,7 @@
             <button
               type="submit"
               id="submit-btn"
-              class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 self-end shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_25px_rgba(34,197,94,0.8)]"
+              class="bg-green-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-600 transition-all duration-300 self-end shadow-lg"
             >
               <span id="btn-text">Send Message</span>
               <span id="btn-loading" class="hidden">
@@ -848,6 +1024,135 @@
         </div>
       </div>
     </footer>
+
+    <!-- Skill Modals -->
+    <div
+      id="backend-skills-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="backend-skills-modal-content"
+        class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6 transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="backend-skills"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 p-2"
+          aria-label="Close Backend skills modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <h3 class="mb-6 pr-10 text-2xl font-bold text-gray-900">
+          Backend Frameworks
+        </h3>
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 justify-items-center">
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/node-js.png"
+              alt="Node.js"
+            />
+            <span class="skill-card__label">Node.js</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/python.png"
+              alt="Python"
+            />
+            <span class="skill-card__label">Python</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/officel/80/php-logo.png"
+              alt="PHP"
+            />
+            <span class="skill-card__label">PHP</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/laravel.png"
+              alt="Laravel"
+            />
+            <span class="skill-card__label">Laravel</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/color/48/django.png"
+              alt="Django"
+            />
+            <span class="skill-card__label">Django</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      id="developer-tools-modal"
+      class="portfolio-modal fixed inset-0 z-[100] hidden items-center justify-center bg-black bg-opacity-50 p-4"
+    >
+      <div
+        id="developer-tools-modal-content"
+        class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-white rounded-lg shadow-xl p-6 transform scale-95 opacity-0 transition-all duration-300"
+      >
+        <button
+          type="button"
+          data-close-modal="developer-tools"
+          class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 focus:outline-none z-10 p-2"
+          aria-label="Close Developer Tools modal"
+        >
+          <i class="fas fa-times text-xl"></i>
+        </button>
+        <h3 class="mb-6 pr-10 text-2xl font-bold text-gray-900">
+          Developer Tools
+        </h3>
+        <div class="grid grid-cols-2 gap-6 sm:grid-cols-3 justify-items-center">
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/git.png"
+              alt="Git"
+            />
+            <span class="skill-card__label">Git</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/github.png"
+              alt="GitHub"
+            />
+            <span class="skill-card__label">GitHub</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/visual-studio-code-2019.png"
+              alt="VS Code"
+            />
+            <span class="skill-card__label">VS Code</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/color/96/npm.png"
+              alt="Npm"
+            />
+            <span class="skill-card__label">Npm</span>
+          </div>
+          <div class="skill-card bg-transparent shadow-none" tabindex="0">
+            <img
+              class="skill-card__icon"
+              src="https://img.icons8.com/fluency/96/visual-studio.png"
+              alt="Visual Studio"
+            />
+            <span class="skill-card__label">Visual Studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Certification Modals -->
     <div

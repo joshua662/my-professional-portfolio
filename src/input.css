@@ -1,3 +1,134 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Keep the portfolio accent palette neutral. */
+@layer utilities {
+  .bg-green-50,
+  .hover\:bg-green-50:hover {
+    background-color: #f9fafb !important;
+  }
+
+  .bg-green-100 {
+    background-color: #f3f4f6 !important;
+  }
+
+  .bg-green-500 {
+    background-color: #6b7280 !important;
+  }
+
+  .hover\:bg-green-600:hover {
+    background-color: #4b5563 !important;
+  }
+
+  .border-green-300 {
+    border-color: #9ca3af !important;
+  }
+
+  .border-green-500,
+  .hover\:border-green-500:hover {
+    border-color: #4b5563 !important;
+  }
+
+  .text-green-500,
+  .hover\:text-green-500:hover {
+    color: #374151 !important;
+  }
+
+  .text-green-700 {
+    color: #1f2937 !important;
+  }
+
+  .focus\:ring-green-500:focus {
+    --tw-ring-color: #6b7280 !important;
+  }
+}
+
+@layer components {
+  .skill-card {
+    @apply relative flex items-center justify-center w-full max-w-[8.5rem] aspect-square overflow-hidden rounded-xl cursor-default outline-none transition duration-200;
+    background: linear-gradient(180deg, #7a7f88 0%, #2a2e35 55%, #16181c 100%);
+    box-shadow: 0 10px 22px rgba(15, 23, 42, 0.28);
+  }
+
+  .skill-card:hover,
+  .skill-card:focus-visible {
+    box-shadow: 0 14px 28px rgba(15, 23, 42, 0.38);
+    transform: translateY(-2px);
+  }
+
+  .skill-card__icon {
+    @apply w-[62%] h-[62%] object-contain transition-transform duration-200;
+    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.35));
+  }
+
+  .portfolio-modal [class~="bg-gray-50"] {
+    background-color: transparent !important;
+    padding: 0.75rem !important;
+  }
+
+  .portfolio-modal {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .portfolio-modal.modal-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .portfolio-modal [id$="-modal-content"] {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s ease;
+  }
+
+  .modal-skill-card {
+    @apply relative flex flex-col items-center justify-center w-full max-w-[8.5rem] aspect-square;
+  }
+
+  .modal-skill-card__icon {
+    @apply w-[62%] h-[62%] object-contain;
+  }
+
+  .skill-card:hover .skill-card__icon,
+  .skill-card:focus-visible .skill-card__icon {
+    transform: scale(0.9) translateY(-6px);
+  }
+
+  .skill-card__label {
+    @apply absolute left-3 bottom-2.5 text-sm font-bold text-white pointer-events-none;
+    opacity: 0;
+    transform: translateY(8px);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.65);
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .skill-card:hover .skill-card__label,
+  .skill-card:focus-visible .skill-card__label {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (hover: none) {
+    .skill-card__label {
+      opacity: 1;
+      transform: none;
+    }
+
+    .skill-card__icon {
+      transform: scale(0.9) translateY(-6px);
+    }
+  }
+
+  .typing-cursor {
+    animation: blink 0.9s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+}
