@@ -194,68 +194,94 @@ function closeActiveModal() {
   }
 }
 
-// Initialize modals when DOM is ready
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .querySelectorAll(
+/**
+ * Initialize modal event listeners
+ * This function can be called multiple times (after modals are loaded)
+ */
+function initializeModalListeners() {
+  // Remove existing listeners to prevent duplicates
+  // by using event delegation at the document level
+
+  // Click event for modal cards (delegation)
+  document.addEventListener("click", function (e) {
+    // Check if click target or any parent has modal data attributes
+    const card = e.target.closest(
       "[data-cert-modal], [data-project-modal], [data-skill-modal]",
-    )
-    .forEach((card) => {
-      card.addEventListener("click", function (e) {
-        const clickedButton = e.target.closest("button");
-        if (
-          e.target.closest("a") ||
-          e.target.closest("video") ||
-          (clickedButton && clickedButton !== this)
-        ) {
-          return;
-        }
+    );
 
-        const modalId =
-          this.getAttribute("data-cert-modal") ||
-          this.getAttribute("data-project-modal") ||
-          this.getAttribute("data-skill-modal");
-        if (modalId) {
-          e.preventDefault();
-          e.stopPropagation();
-          openModal(modalId);
-        }
-      });
-    });
+    if (!card) return;
 
-  document.querySelectorAll("[data-close-modal]").forEach((button) => {
-    button.addEventListener("click", function (e) {
+    // Prevent opening modal from buttons, links, or videos within the card
+    const clickedButton = e.target.closest("button");
+    if (
+      e.target.closest("a") ||
+      e.target.closest("video") ||
+      (clickedButton && clickedButton !== card)
+    ) {
+      return;
+    }
+
+    const modalId =
+      card.getAttribute("data-cert-modal") ||
+      card.getAttribute("data-project-modal") ||
+      card.getAttribute("data-skill-modal");
+
+    if (modalId) {
       e.preventDefault();
       e.stopPropagation();
-      const modalId = this.getAttribute("data-close-modal");
-      if (modalId) {
-        closeModal(modalId);
-      }
-    });
-  });
-
-  document.querySelectorAll(".portfolio-modal").forEach((modal) => {
-    modal.addEventListener("click", function (e) {
-      if (suppressOverlayClose) return;
-      if (e.target !== modal) return;
-
-      const modalId = modal.id.replace(/-modal$/, "");
-      closeModal(modalId);
-    });
-
-    const modalContent = modal.querySelector('[id$="-modal-content"]');
-    if (modalContent) {
-      modalContent.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
+      openModal(modalId);
     }
   });
 
+  // Close button event listeners (delegation)
+  document.addEventListener("click", function (e) {
+    const closeBtn = e.target.closest("[data-close-modal]");
+    if (!closeBtn) return;
+
+    e.preventDefault();
+    e.stopPropagation();
+    const modalId = closeBtn.getAttribute("data-close-modal");
+    if (modalId) {
+      closeModal(modalId);
+    }
+  });
+
+  // Modal overlay click (delegation)
+  document.addEventListener("click", function (e) {
+    if (suppressOverlayClose) return;
+
+    // Check if click is directly on a portfolio modal (not its children)
+    const modal = e.target.closest(".portfolio-modal");
+    if (!modal) return;
+
+    // Only close if clicking on the modal itself, not the content
+    if (e.target === modal) {
+      const modalId = modal.id.replace(/-modal$/, "");
+      closeModal(modalId);
+    }
+  });
+
+  // Prevent modal overlay from closing when clicking inside modal content
+  document.addEventListener("click", function (e) {
+    const modalContent = e.target.closest('[id$="-modal-content"]');
+    if (modalContent) {
+      e.stopPropagation();
+    }
+  });
+
+  // Escape key handler
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       closeActiveModal();
     }
   });
+
+  console.log("Modal listeners initialized");
+}
+
+// Initialize modals when DOM is ready
+document.addEventListener("DOMContentLoaded", function () {
+  initializeModalListeners();
 });
 
 // Make functions globally available for onclick handlers
