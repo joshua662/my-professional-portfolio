@@ -115,6 +115,23 @@ function showModalContent(modalContent) {
   modalContent.classList.add("scale-100", "opacity-100");
 }
 
+function closeAllVisibleModals(exceptModalId = null) {
+  document.querySelectorAll(".portfolio-modal").forEach((modal) => {
+    const modalId = modal.id.replace(/-modal$/, "");
+    if (exceptModalId && modalId === exceptModalId) return;
+    if (modal.classList.contains("hidden")) return;
+
+    const modalContent = modal.querySelector("[id$='-modal-content']");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex", "modal-open", "modal-closing");
+    resetModalContent(modalContent);
+  });
+
+  if (!document.querySelector(".portfolio-modal:not(.hidden)")) {
+    document.body.style.overflow = "";
+  }
+}
+
 /**
  * Opens a modal by ID.
  * @param {string} modalId - The modal identifier (e.g., 'cert-1', 'project-1').
@@ -125,6 +142,8 @@ function openModal(modalId) {
   if (activeModalId && activeModalId !== modalId) {
     closeModal(activeModalId, true);
   }
+
+  closeAllVisibleModals(modalId);
 
   const { modal, modalContent } = getModalElements(modalId);
   if (!modal) return;
