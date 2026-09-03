@@ -1,15 +1,17 @@
-# Portfolio Project - File Structure & Setup Guide
+# Portfolio Project - React Setup Guide
 
 ## Project Structure
 
 ```
 My-Professional-Portfolio/
-├── dist/
-│   ├── index.html              # Main HTML file
-│   ├── output.css              # Compiled Tailwind CSS
-│   ├── script.js               # Main JavaScript (modals & interactions)
-│   ├── modals.html             # Separate modals file
+├── index.html                  # Vite entry document
+├── src/
+│   ├── App.jsx                 # React UI, state, and interactions
+│   ├── main.jsx                # React root mount
 │   ├── RESUME AND LETTER.pdf   # Resume PDF
+├── dist/                       # Vite/Tailwind production output
+│   ├── index.html
+│   ├── output.css
 │   ├── image/                  # Images folder
 │   │   ├── Profile2.jpg
 │   │   ├── Project.png
@@ -20,10 +22,9 @@ My-Professional-Portfolio/
 │   │   └── ... (more certificate images)
 │   ├── video/                  # Videos folder
 │   │   └── DEMO PRESENTATION.mp4
-│   └── js/                     # JavaScript folder
-│       └── modals-loader.js    # Loads modals dynamically
-├── src/
-│   └── input.css               # Source CSS (Tailwind)
+│   └── video/                  # Videos folder
+├── src/input.css                # Source CSS (Tailwind)
+├── vite.config.js
 ├── package.json
 ├── tailwind.config.js
 └── vercel.json
@@ -75,37 +76,24 @@ My-Professional-Portfolio/
 </video>
 ```
 
-## Modals Organization
+## React Interactions
 
-All modals (skill, certificate, project) are now stored in a separate file for better code organization:
+All interactions are owned by React in `src/App.jsx`:
 
-- **Modals HTML:** [dist/modals.html](dist/modals.html)
-- **Modal Loader Script:** [dist/js/modals-loader.js](dist/js/modals-loader.js)
-- **Modal JavaScript Logic:** [dist/script.js](dist/script.js)
-
-### Modal Types
-
-1. **Skill Modals** - Backend Frameworks, Developer Tools
-2. **Certificate Modals** - cert-1 to cert-5
-3. **Project Modals** - project-1 to project-4
-
-### How Modals Work
-
-1. User clicks on a card with `data-cert-modal`, `data-project-modal`, or `data-skill-modal` attribute
-2. `script.js` listens for the click and calls `openModal(modalId)`
-3. The modal HTML is loaded from `modals.html` via `modals-loader.js`
-4. Modal opens with smooth animation
-5. Click close button, overlay, or press ESC to close
+- Project, certificate, skill, and email dialogs use component state.
+- Navigation and mobile menu state are handled with React events.
+- The contact form is controlled, validated, and opens a mailto fallback.
+- The typewriter and active-section navigation use React effects.
 
 ## Building & Deployment
 
 ### Development
 
 ```bash
-npm run dev
+npm start
 ```
 
-Watches for CSS changes and rebuilds `output.css`
+Starts the Vite development server.
 
 ### Production
 
@@ -113,7 +101,7 @@ Watches for CSS changes and rebuilds `output.css`
 npm run build
 ```
 
-Minifies CSS for production
+Builds Tailwind CSS and bundles the React app into `dist/`.
 
 ## Naming Conventions
 
@@ -151,7 +139,7 @@ Minifies CSS for production
 | ----------------- | ------------------------------------------------------------- |
 | Image not showing | Check file path and verify file exists in `image/` folder     |
 | PDF link broken   | Ensure PDF is in `dist/` root and path is correct             |
-| Modal not loading | Check browser console for errors, verify `modals.html` exists |
+| Modal not loading | Check browser console for React errors and verify the modal state handler in `src/App.jsx` |
 | Video won't play  | Check video format (MP4 preferred) and file size              |
 
 ## Path Examples
@@ -166,4 +154,4 @@ Minifies CSS for production
 
 ---
 
-For more help, check existing HTML references or update `modals.html` for new modals.
+For more help, add new portfolio content to the data arrays and components in `src/App.jsx`.
