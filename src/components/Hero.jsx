@@ -1,37 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { roles } from "../data/portfolioData";
+import MorphText from "./MorphText";
 
 export default function Hero() {
-  const [role, setRole] = useState("");
-
-  useEffect(() => {
-    let roleIndex = 0;
-    let characterIndex = 0;
-    let deleting = false;
-    let timer;
-
-    const tick = () => {
-      const current = roles[roleIndex];
-      characterIndex += deleting ? -1 : 1;
-      setRole(current.slice(0, characterIndex));
-      let delay = deleting ? 50 : 100;
-
-      if (!deleting && characterIndex === current.length) {
-        deleting = true;
-        delay = 1600;
-      } else if (deleting && characterIndex === 0) {
-        deleting = false;
-        roleIndex = (roleIndex + 1) % roles.length;
-        delay = 400;
-      }
-
-      timer = window.setTimeout(tick, delay);
-    };
-
-    timer = window.setTimeout(tick, 100);
-    return () => window.clearTimeout(timer);
-  }, []);
-
   return (
     <section
       id="home"
@@ -58,17 +29,18 @@ export default function Hero() {
             Information Technology Student
           </p>
           <h1 className="mb-3 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
-            Josh Simpas
+            Joshua Simpas
           </h1>
-          <p className="mb-6 text-xl font-semibold text-gray-700 sm:text-2xl min-h-[36px] flex items-center justify-center md:justify-start">
-            <span>I'm a </span>
-            <span className="ml-2 border-b-2 border-gray-900 text-gray-900 transition-all duration-300">
-              {role}
-            </span>
-            <span className="typing-cursor ml-1 text-gray-500 font-normal">
-              |
-            </span>
-          </p>
+          <div className="mb-6 flex flex-wrap items-center justify-center md:justify-start gap-2 text-xl sm:text-2xl font-semibold text-gray-700 min-h-[44px]">
+            <span className="whitespace-nowrap">I'm a</span>
+            <MorphText
+              words={roles}
+              interval={2600}
+              fontSize="clamp(1.15rem, 2.5vw, 1.65rem)"
+              fontFamily="inherit"
+              className="inline-flex items-center"
+            />
+          </div>
           <p className="mx-auto mb-8 max-w-2xl text-base leading-relaxed text-gray-600 md:mx-0 sm:text-lg">
             My portfolio showcases academic projects, technical skills, and
             hands-on experiences in software development, system management, and

@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import GooeyTextReveal from "./GooeyTextReveal";
+import GooeyElementReveal from "./GooeyElementReveal";
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -65,109 +67,113 @@ export default function Contact() {
   return (
     <section id="contact" className="section-muted">
       <div className="container mx-auto max-w-5xl px-6">
-        <div className="section-heading animate-fade-in-up">
-          <h2>Contact Me</h2>
+        <div className="section-heading">
+          <GooeyTextReveal mode="scroll" start="top 85%">
+            <h2>Contact Me</h2>
+          </GooeyTextReveal>
           <span />
         </div>
 
-        <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 animate-fade-in-up" style={{ animationDelay: "100ms" }}>
-          <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
-            <div className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
-                  Full Name <span className="text-red-500">*</span>
-                </label>
-                <input
-                  name="name"
-                  type="text"
-                  value={form.name}
-                  onChange={handleChange}
-                  placeholder="e.g. John Doe"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
-                  Your Email Address <span className="text-red-500">*</span>
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  value={form.email}
-                  onChange={handleChange}
-                  placeholder="e.g. john@example.com"
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
-                  Phone Number (Optional)
-                </label>
-                <input
-                  name="phone"
-                  type="tel"
-                  value={form.phone}
-                  onChange={handleChange}
-                  placeholder="+63 900 000 0000"
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
-                  Subject <span className="text-red-500">*</span>
-                </label>
-                <input
-                  name="subject"
-                  type="text"
-                  value={form.subject}
-                  onChange={handleChange}
-                  placeholder="Inquiry / Collaboration"
-                  required
-                  className="form-input"
-                />
-              </div>
-            </div>
-
-            <div className="flex flex-col justify-between">
-              <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
-                  Your Message <span className="text-red-500">*</span>
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  rows="5"
-                  placeholder="Write your message here..."
-                  required
-                  className="form-input resize-none"
-                />
-              </div>
-
-              {formMessage && (
-                <div
-                  className={`my-3 p-3.5 rounded-xl border text-xs font-semibold animate-fade-in-up ${
-                    formMessage.type === "success"
-                      ? "border-green-300 bg-green-50 text-gray-800"
-                      : "border-red-300 bg-red-50 text-red-800"
-                  }`}
-                >
-                  {formMessage.text}
+        <GooeyElementReveal mode="scroll" delay={0.15} yFrom={30} blurAmount={12}>
+          <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
+            <form onSubmit={handleSubmit} className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-4">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+                    Full Name <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="name"
+                    type="text"
+                    value={form.name}
+                    onChange={handleChange}
+                    placeholder="e.g. John Doe"
+                    required
+                    className="form-input"
+                  />
                 </div>
-              )}
 
-              <button type="submit" className="button-primary mt-4 gap-2 self-end group">
-                <i className="fas fa-paper-plane transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-                Send Message
-              </button>
-            </div>
-          </form>
-        </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+                    Your Email Address <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="email"
+                    type="email"
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="e.g. john@example.com"
+                    required
+                    className="form-input"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+                    Phone Number (Optional)
+                  </label>
+                  <input
+                    name="phone"
+                    type="tel"
+                    value={form.phone}
+                    onChange={handleChange}
+                    placeholder="+63 900 000 0000"
+                    className="form-input"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+                    Subject <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="subject"
+                    type="text"
+                    value={form.subject}
+                    onChange={handleChange}
+                    placeholder="Inquiry / Collaboration"
+                    required
+                    className="form-input"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1">
+                    Your Message <span className="text-red-500">*</span>
+                  </label>
+                  <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    rows="5"
+                    placeholder="Write your message here..."
+                    required
+                    className="form-input resize-none"
+                  />
+                </div>
+
+                {formMessage && (
+                  <div
+                    className={`my-3 p-3.5 rounded-xl border text-xs font-semibold animate-fade-in-up ${
+                      formMessage.type === "success"
+                        ? "border-green-300 bg-green-50 text-gray-800"
+                        : "border-red-300 bg-red-50 text-red-800"
+                    }`}
+                  >
+                    {formMessage.text}
+                  </div>
+                )}
+
+                <button type="submit" className="button-primary mt-4 gap-2 self-end group">
+                  <i className="fas fa-paper-plane transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  Send Message
+                </button>
+              </div>
+            </form>
+          </div>
+        </GooeyElementReveal>
       </div>
     </section>
   );
