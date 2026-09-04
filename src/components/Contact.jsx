@@ -142,7 +142,7 @@ export default function Contact() {
                   name="message"
                   value={form.message}
                   onChange={handleChange}
-                  rows="7"
+                  rows="5"
                   placeholder="Write your message here..."
                   required
                   className="form-input resize-none"

@@ -30,7 +30,7 @@ export default function Certificates({ onOpenCertificatesModal }) {
           <h2>Certificates</h2>
           <span />
         </div>
-        <p className="-mt-8 mb-8 text-gray-600 text-sm md:text-base animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+        <p className="-mt-6 mb-6 text-gray-600 text-sm md:text-base animate-fade-in-up" style={{ animationDelay: "100ms" }}>
           Credentials, continuing education, and recognized achievements.
         </p>
 

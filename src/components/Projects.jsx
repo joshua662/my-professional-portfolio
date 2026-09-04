@@ -9,7 +9,7 @@ export default function Projects({ onOpenProjectModal }) {
           <h2>Projects</h2>
           <span />
         </div>
-        <p className="-mt-8 mb-10 text-gray-600 text-sm md:text-base animate-fade-in-up" style={{ animationDelay: "100ms" }}>
+        <p className="-mt-6 mb-8 text-gray-600 text-sm md:text-base animate-fade-in-up" style={{ animationDelay: "100ms" }}>
           A snapshot of recent web apps, hardware IoT integrations, and academic systems.
         </p>
 

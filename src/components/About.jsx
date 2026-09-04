@@ -61,7 +61,7 @@ export default function About() {
         </div>
 
         {/* Social Links Panel */}
-        <div className="content-panel mt-8 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
+        <div className="content-panel mt-6 animate-fade-in-up" style={{ animationDelay: "300ms" }}>
           <h3 className="panel-title">
             <i className="fas fa-link" />
             Social Links
