@@ -35,7 +35,7 @@ export default function Certificates({ onOpenCertificatesModal }) {
           <span />
         </div>
         <GooeyTextReveal mode="scroll" delay={0.1}>
-          <p className="-mt-6 mb-6 text-gray-600 text-sm md:text-base">
+          <p className="-mt-6 mb-6 text-gray-600 dark:text-gray-400 text-sm md:text-base">
             Credentials, continuing education, and recognized achievements.
           </p>
         </GooeyTextReveal>
@@ -54,15 +54,15 @@ export default function Certificates({ onOpenCertificatesModal }) {
                     <i className={group.icon} />
                   </span>
                   <div>
-                    <strong className="block text-base font-bold text-gray-900 group-hover:text-gray-700 transition-colors">
+                    <strong className="block text-base font-bold text-gray-900 dark:text-white group-hover:text-gray-700 dark:group-hover:text-gray-200 transition-colors">
                       {group.title}
                     </strong>
-                    <small className="text-xs text-gray-500 font-semibold">
+                    <small className="text-xs text-gray-500 dark:text-gray-400 font-semibold">
                       {group.items.length} Certificate{group.items.length > 1 ? "s" : ""}
                     </small>
                   </div>
                 </div>
-                <i className="fas fa-arrow-right text-gray-400 group-hover:text-gray-900 group-hover:translate-x-2 transition-all duration-300" />
+                <i className="fas fa-arrow-right text-gray-400 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white group-hover:translate-x-2 transition-all duration-300" />
               </button>
             ))}
           </div>

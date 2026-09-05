@@ -76,7 +76,7 @@ export function MorphText({
           {words.map((word, i) => (
             <span
               key={`${word}-${i}`}
-              className="morph-word absolute text-gray-900 border-b-2 border-gray-900"
+              className="morph-word absolute text-gray-900 dark:text-white"
               style={{
                 top: "50%",
                 left: "0",

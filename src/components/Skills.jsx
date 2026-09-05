@@ -29,7 +29,12 @@ export default function Skills({ onOpenCategoryModal }) {
           <span />
         </div>
 
-        <GooeyElementReveal mode="scroll" stagger={0.12} yFrom={25} blurAmount={12}>
+        <GooeyElementReveal
+          mode="scroll"
+          stagger={0.12}
+          yFrom={25}
+          blurAmount={12}
+        >
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {Object.entries(skillGroups).map(([group, skills]) => {
               const hasMore =
@@ -38,7 +43,7 @@ export default function Skills({ onOpenCategoryModal }) {
 
               return (
                 <div key={group} className="skill-group">
-                  <h3 className="mb-5 text-center text-sm font-bold uppercase tracking-wider text-gray-800 border-b border-gray-100 pb-2 w-full">
+                  <h3 className="mb-5 text-center text-sm font-bold uppercase tracking-wider text-gray-800 dark:text-gray-200 border-b border-gray-100 dark:border-gray-800 pb-2 w-full">
                     {group}
                   </h3>
                   <div className="flex flex-col items-center gap-4 w-full">

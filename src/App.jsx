@@ -12,6 +12,24 @@ import Modal from "./components/Modal";
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "light";
+  });
+
+  // Sync theme with document.documentElement class & localStorage
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleToggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
 
   // Smooth scroll handler
   const handleNavigate = (id) => {
@@ -71,8 +89,13 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-800 antialiased selection:bg-gray-800 selection:text-white">
-      <Navbar activeSection={activeSection} onNavigate={handleNavigate} />
+    <div className="min-h-screen bg-white dark:bg-black font-sans text-gray-800 dark:text-gray-100 antialiased selection:bg-gray-800 selection:text-white dark:selection:bg-gray-200 dark:selection:text-gray-900 transition-colors duration-300">
+      <Navbar
+        activeSection={activeSection}
+        onNavigate={handleNavigate}
+        theme={theme}
+        onToggleTheme={handleToggleTheme}
+      />
 
       <main>
         <Hero />
