@@ -1,67 +1,68 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef, useState } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { projects } from "../data/portfolioData";
 import GooeyTextReveal from "./GooeyTextReveal";
 import GooeyElementReveal from "./GooeyElementReveal";
 
 function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
   const cardRef = useRef(null);
+  const [isActive, setIsActive] = useState(index === 0);
 
-  // Divide scroll range into 4 distinct phases with synchronized crossover fade-in / fade-out
+  // Divide scroll range into 4 distinct phases with 1-second effect fade crossover windows
   let inputRanges;
   let opacityRanges;
   let scaleRanges;
-  let yRanges;
 
   if (index === 0) {
-    // Project 1: Starts 100% visible -> holds -> slowly fades out to Project 2
-    inputRanges = [0, 0.18, 0.28, 1];
+    // Project 1: Starts 100% visible -> holds -> 1s effect fade out to Project 2
+    inputRanges = [0, 0.15, 0.28, 1];
     opacityRanges = [1, 1, 0, 0];
     scaleRanges = [1, 1, 0.92, 0.92];
-    yRanges = [0, 0, -40, -40];
   } else if (index === 1) {
-    // Project 2: Slowly fades in as Project 1 fades out -> holds 100% -> slowly fades out as Project 3 fades in
-    inputRanges = [0, 0.18, 0.28, 0.43, 0.53, 1];
+    // Project 2: Fades in as Project 1 fades out -> holds 100% -> 1s effect fade out as Project 3 fades in
+    inputRanges = [0, 0.15, 0.28, 0.43, 0.56, 1];
     opacityRanges = [0, 0, 1, 1, 0, 0];
     scaleRanges = [0.92, 0.92, 1, 1, 0.92, 0.92];
-    yRanges = [40, 40, 0, 0, -40, -40];
   } else if (index === 2) {
-    // Project 3: Slowly fades in as Project 2 fades out -> holds 100% -> slowly fades out as Project 4 fades in
-    inputRanges = [0, 0.43, 0.53, 0.68, 0.78, 1];
+    // Project 3: Fades in as Project 2 fades out -> holds 100% -> 1s effect fade out as Project 4 fades in
+    inputRanges = [0, 0.43, 0.56, 0.71, 0.84, 1];
     opacityRanges = [0, 0, 1, 1, 0, 0];
     scaleRanges = [0.92, 0.92, 1, 1, 0.92, 0.92];
-    yRanges = [40, 40, 0, 0, -40, -40];
   } else {
-    // Project 4: Slowly fades in as Project 3 fades out -> holds 100% to section end
-    inputRanges = [0, 0.68, 0.78, 1];
+    // Project 4: Fades in as Project 3 fades out -> holds 100% to section end
+    inputRanges = [0, 0.71, 0.84, 1];
     opacityRanges = [0, 0, 1, 1];
     scaleRanges = [0.92, 0.92, 1, 1];
-    yRanges = [40, 40, 0, 0];
   }
 
   const opacity = useTransform(progress, inputRanges, opacityRanges);
   const scale = useTransform(progress, inputRanges, scaleRanges);
-  const y = useTransform(progress, inputRanges, yRanges);
+
+  // Synchronize Gooey text reveal trigger with card visibility on scroll up/down
+  useMotionValueEvent(opacity, "change", (latest) => {
+    if (latest >= 0.2 && !isActive) {
+      setIsActive(true);
+    } else if (latest < 0.1 && isActive) {
+      setIsActive(false);
+    }
+  });
 
   return (
     <div
       ref={cardRef}
-      className="sticky flex items-center justify-center transition-all duration-300"
-      style={{
-        top: "140px",
-        zIndex: (index + 1) * 10,
-      }}
+      className={`absolute inset-0 flex items-center justify-center ${
+        isActive ? "pointer-events-auto z-10" : "pointer-events-none z-0"
+      }`}
     >
       <motion.div
         style={{
           opacity,
           scale,
-          y,
           transformOrigin: "center center",
         }}
         className="w-full"
       >
-        <GooeyElementReveal mode="scroll" start="top 90%" once={true} yFrom={20} blurAmount={6}>
+        <GooeyElementReveal key={`elem-${isActive}`} mode={isActive ? "immediate" : "none"} yFrom={20} blurAmount={6}>
           <div className="relative rounded-[2.5rem] bg-white dark:bg-black border border-gray-200/90 dark:border-gray-800 p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-hidden">
             {/* Technical Corner Bracket Accents */}
             <span className="absolute top-4 left-4 text-gray-300 dark:text-gray-700 font-mono text-sm pointer-events-none select-none">
@@ -102,14 +103,14 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                   </div>
 
                   {/* Main Large Title */}
-                  <GooeyTextReveal mode="scroll" start="top 90%" once={true}>
+                  <GooeyTextReveal key={`title-${isActive}`} mode={isActive ? "immediate" : "none"}>
                     <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-900 dark:text-white tracking-tight leading-[1.15] mb-4">
                       {project.title}
                     </h3>
                   </GooeyTextReveal>
 
                   {/* Description Paragraph */}
-                  <GooeyTextReveal mode="scroll" start="top 90%" once={true} delay={0}>
+                  <GooeyTextReveal key={`desc-${isActive}`} mode={isActive ? "immediate" : "none"} delay={0.1}>
                     <p className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300 font-normal mb-6">
                       {project.description}
                     </p>
@@ -193,30 +194,33 @@ export default function Projects({ onOpenProjectModal }) {
   });
 
   return (
-    <section id="portfolio" ref={containerRef} className="section-muted relative pt-8 pb-32">
-      <div className="container mx-auto max-w-7xl px-6">
-        {/* Sticky Section Heading (Pins at top during scroll) */}
-        <div className="sticky top-16 z-40 bg-white/90 dark:bg-black/90 backdrop-blur-md pt-4 pb-4 mb-8">
+    <section
+      id="portfolio"
+      ref={containerRef}
+      className="relative bg-white dark:bg-black"
+      style={{ height: `${Math.max(projects.length, 1) * 100}vh` }}
+    >
+      <div className="sticky top-0 z-20 flex h-screen flex-col overflow-hidden bg-white dark:bg-black">
+        <div className="container mx-auto max-w-7xl shrink-0 px-6 pt-24 pb-4">
           <div className="section-heading mb-0">
-            <GooeyTextReveal mode="scroll" start="top 85%">
-              <h2>Projects</h2>
-            </GooeyTextReveal>
+            <h2>Projects</h2>
             <span />
           </div>
         </div>
 
-        {/* Stacked Case Study Cards Container */}
-        <div className="space-y-24 md:space-y-32 pb-32">
-          {projects.map((project, index) => (
-            <Card
-              key={project.id}
-              project={project}
-              index={index}
-              totalProjects={projects.length}
-              progress={scrollYProgress}
-              onOpenProjectModal={onOpenProjectModal}
-            />
-          ))}
+        <div className="relative min-h-0 flex-1">
+          <div className="absolute inset-0 container mx-auto max-w-7xl px-6 pb-8">
+            {projects.map((project, index) => (
+              <Card
+                key={project.id}
+                project={project}
+                index={index}
+                totalProjects={projects.length}
+                progress={scrollYProgress}
+                onOpenProjectModal={onOpenProjectModal}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
