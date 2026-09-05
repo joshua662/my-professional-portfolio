@@ -9,16 +9,17 @@ export function GooeyElementReveal({
   children,
   mode = "scroll",
   delay = 0,
-  duration = 1.2,
-  blurAmount = 10,
-  scaleFrom = 0.94,
-  yFrom = 25,
-  ease = "power3.out",
-  start = "top 88%",
+  duration = 0.8,
+  blurAmount = 6,
+  scaleFrom = 0.96,
+  yFrom = 20,
+  ease = "power2.out",
+  start = "top 90%",
   end = "bottom 75%",
-  once = false,
+  once = true,
   className = "",
   stagger = 0,
+  onComplete,
   ...props
 }) {
   const containerRef = useRef(null);
@@ -60,6 +61,10 @@ export function GooeyElementReveal({
         ease,
         delay,
         stagger: stagger > 0 ? stagger : undefined,
+        onComplete: () => {
+          gsap.set(targets, { clearProps: "filter,willChange,transform" });
+          if (onComplete) onComplete();
+        },
       };
 
       if (mode === "scroll") {

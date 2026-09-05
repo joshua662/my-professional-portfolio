@@ -41,14 +41,14 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
     children,
     mode = "immediate",
     delay = 0,
-    duration = 1.5,
-    stagger = 0.1,
-    blurAmount = 0.35,
-    ease = "power3.out",
-    start = "top 80%",
+    duration = 0.8,
+    stagger = 0.04,
+    blurAmount = 0.3,
+    ease = "power2.out",
+    start = "top 90%",
     end = "bottom 75%",
     scroller,
-    once = false,
+    once = true,
     disabled = false,
     onComplete,
     className = "",
@@ -127,14 +127,23 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
 
         if (layers.length === 0) return;
 
-        gsap.set(layers, { filter: `blur(${blurAmount}em)` });
+        gsap.set(layers, {
+          filter: `blur(${blurAmount}em)`,
+          opacity: 0,
+          y: 6,
+        });
 
         const animation = {
           filter: "blur(0em)",
+          opacity: 1,
+          y: 0,
           duration,
           ease,
           stagger,
-          onComplete,
+          onComplete: () => {
+            gsap.set(layers, { clearProps: "filter,willChange,transform" });
+            if (onComplete) onComplete();
+          },
         };
 
         if (mode === "scrub") {
