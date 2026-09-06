@@ -108,7 +108,11 @@ export const certificates = [
     image: "/image/Incident Respone Leadership for Cybersecurity Managers.jpg",
     description:
       "Focuses on leading security response teams, coordinating recovery, and minimizing operational impact during cyber incidents.",
-    technologies: ["Incident Response", "Cybersecurity Leadership", "Business Continuity"],
+    technologies: [
+      "Incident Response",
+      "Cybersecurity Leadership",
+      "Business Continuity",
+    ],
   },
   {
     id: "cert-3",
@@ -135,7 +139,11 @@ export const certificates = [
     image: "/image/Learning Threat Modeling for Security.jpg",
     description:
       "Builds understanding of identifying attack surfaces, evaluating risk, and designing stronger application security controls.",
-    technologies: ["Threat Modeling", "Application Security", "Risk Mitigation"],
+    technologies: [
+      "Threat Modeling",
+      "Application Security",
+      "Risk Mitigation",
+    ],
   },
 ];
 
@@ -147,7 +155,11 @@ export const seminarCertificates = [
     image: "/image/Ethical Hacking.png",
     description:
       "This seminar focused on ethical hacking principles, identifying vulnerabilities, and strengthening organizational cyber defenses.",
-    technologies: ["Ethical Hacking", "Vulnerability Assessment", "Cyber Security"],
+    technologies: [
+      "Ethical Hacking",
+      "Vulnerability Assessment",
+      "Cyber Security",
+    ],
   },
   {
     id: "seminar-2",
@@ -156,7 +168,11 @@ export const seminarCertificates = [
     image: "/image/Cybersecurity.png",
     description:
       "Covered cybersecurity awareness, risk reduction strategies, and the practical steps needed to protect digital systems and information.",
-    technologies: ["Security Awareness", "Risk Reduction", "Digital Protection"],
+    technologies: [
+      "Security Awareness",
+      "Risk Reduction",
+      "Digital Protection",
+    ],
   },
   {
     id: "seminar-3",
@@ -194,7 +210,10 @@ export const skillGroups = {
   "Developer Tools": [
     ["Git", "https://img.icons8.com/fluency/96/git.png"],
     ["GitHub", "https://img.icons8.com/fluency/96/github.png"],
-    ["VS Code", "https://img.icons8.com/fluency/96/visual-studio-code-2019.png"],
+    [
+      "VS Code",
+      "https://img.icons8.com/fluency/96/visual-studio-code-2019.png",
+    ],
     ["Npm", "https://img.icons8.com/color/96/npm.png"],
     ["Visual Studio", "https://img.icons8.com/fluency/96/visual-studio.png"],
     ["Arduino", "https://img.icons8.com/color/48/arduino.png"],
@@ -204,21 +223,19 @@ export const skillGroups = {
     ["Kali", "https://img.icons8.com/color/96/kali-linux.png"],
     ["Fedora", "https://img.icons8.com/fluency/96/fedora.png"],
   ],
-  Database: [
-    ["MySQL", "https://img.icons8.com/color/96/mysql-logo.png"],
-  ],
+  Database: [["MySQL", "https://img.icons8.com/color/96/mysql-logo.png"]],
 };
 
 export const timelineItems = [
   {
-    title: "Lead Application Developer",
-    detail: "Bluewind Asia",
-    year: "2021",
+    title: "Web Developer",
+    detail: "Philippines",
+    year: "N/A",
   },
   {
     title: "Software Engineer",
-    detail: "GCM",
-    year: "2020",
+    detail: "Philippines",
+    year: "N/A",
   },
   {
     title: "BS Information Technology",

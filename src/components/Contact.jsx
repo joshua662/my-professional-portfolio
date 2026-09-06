@@ -184,7 +184,7 @@ export default function Contact() {
                             BASED IN
                           </span>
                           <p className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
-                            Quezon City
+                            Likod Balay City
                           </p>
                         </div>
                       </div>
