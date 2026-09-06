@@ -266,6 +266,6 @@ export const socialLinks = [
     icon: "fas fa-envelope",
     title: "Email",
     text: "joshiasimpas36@gmail.com",
-    href: "mailto:joshiasimpas36@gmail.com",
+    href: "mailto:joshuasimpas36@gmail.com",
   },
 ];
