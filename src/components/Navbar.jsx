@@ -1,7 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { navItems } from "../data/portfolioData";
 
-export default function Navbar({ activeSection, onNavigate, theme, onToggleTheme }) {
+export default function Navbar({
+  activeSection,
+  onNavigate,
+  theme,
+  onToggleTheme,
+}) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isTopHovered, setIsTopHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
@@ -46,9 +51,9 @@ export default function Navbar({ activeSection, onNavigate, theme, onToggleTheme
 
   return (
     <>
-      {/* Top Hover Detection Sensor Area (Triggers reveal when mouse approaches top 60px) */}
+      {/* Top Hover Detection Sensor Area (Triggers reveal when mouse enters the top-center zone) */}
       <div
-        className="fixed top-0 inset-x-0 h-16 z-50 pointer-events-auto"
+        className="fixed left-1/2 top-0 z-50 h-20 w-[min(32rem,72vw)] -translate-x-1/2 pointer-events-auto"
         onMouseEnter={() => setIsTopHovered(true)}
         onMouseLeave={() => setIsTopHovered(false)}
       />
@@ -101,7 +106,15 @@ export default function Navbar({ activeSection, onNavigate, theme, onToggleTheme
           >
             {theme === "dark" ? (
               /* Image 1: 8-ray Sun Icon in Dark Mode */
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                className="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <circle cx="12" cy="12" r="4.5" />
                 <path d="M12 2v2.5" />
                 <path d="M12 19.5v2.5" />
@@ -114,7 +127,15 @@ export default function Navbar({ activeSection, onNavigate, theme, onToggleTheme
               </svg>
             ) : (
               /* Image 2: Crescent Moon Icon in Light Mode */
-              <svg className="w-4 h-4 text-gray-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg
+                className="w-4 h-4 text-gray-900"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
               </svg>
             )}

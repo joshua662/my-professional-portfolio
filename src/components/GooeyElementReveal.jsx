@@ -16,7 +16,7 @@ export function GooeyElementReveal({
   ease = "power2.out",
   start = "top 90%",
   end = "bottom 75%",
-  once = true,
+  once = false,
   className = "",
   stagger = 0,
   onComplete,
@@ -26,7 +26,7 @@ export function GooeyElementReveal({
   const reactId = useId();
   const filterId = useMemo(
     () => `gooey-elem-reveal-${reactId.replace(/:/g, "")}`,
-    [reactId]
+    [reactId],
   );
 
   useGSAP(
@@ -35,7 +35,7 @@ export function GooeyElementReveal({
       if (!container) return;
 
       const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
       if (reducedMotion) return;
 
@@ -71,10 +71,7 @@ export function GooeyElementReveal({
         animation.scrollTrigger = {
           trigger: container,
           start,
-          once,
-          toggleActions: once
-            ? "play none none none"
-            : "play reverse play reverse",
+          toggleActions: "play reverse play reverse",
           invalidateOnRefresh: true,
         };
       } else if (mode === "scrub") {
@@ -105,7 +102,7 @@ export function GooeyElementReveal({
         stagger,
         filterId,
       ],
-    }
+    },
   );
 
   return (

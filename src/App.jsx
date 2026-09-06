@@ -13,7 +13,9 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("home");
   const [activeModal, setActiveModal] = useState(null);
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem("theme") || "light";
+    if (typeof window === "undefined") return "light";
+    const savedTheme = localStorage.getItem("theme");
+    return savedTheme === "dark" ? "dark" : "light";
   });
 
   // Sync theme with document.documentElement class & localStorage
@@ -50,7 +52,14 @@ export default function App() {
   // ScrollSpy active section detector
   useEffect(() => {
     const handleScroll = () => {
-      const sectionIds = ["home", "about", "resume", "portfolio", "blog", "contact"];
+      const sectionIds = [
+        "home",
+        "about",
+        "resume",
+        "portfolio",
+        "blog",
+        "contact",
+      ];
       const current = sectionIds.find((id) => {
         const el = document.getElementById(id);
         if (el) {

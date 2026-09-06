@@ -24,13 +24,13 @@ function wrapLine(line) {
 
 function getRevealTargets(container) {
   const explicitTargets = Array.from(
-    container.querySelectorAll("[data-gooey-reveal-item]")
+    container.querySelectorAll("[data-gooey-reveal-item]"),
   );
 
   if (explicitTargets.length > 0) return explicitTargets;
 
   const directChildren = Array.from(container.children).filter(
-    (child) => child instanceof HTMLElement
+    (child) => child instanceof HTMLElement,
   );
 
   return directChildren.length > 0 ? directChildren : [container];
@@ -48,19 +48,19 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
     start = "top 90%",
     end = "bottom 75%",
     scroller,
-    once = true,
+    once = false,
     disabled = false,
     onComplete,
     className = "",
     ...props
   },
-  forwardedRef
+  forwardedRef,
 ) {
   const containerRef = useRef(null);
   const reactId = useId();
   const filterId = useMemo(
     () => `gooey-text-reveal-${reactId.replace(/:/g, "")}`,
-    [reactId]
+    [reactId],
   );
 
   const setContainerRef = useCallback(
@@ -73,7 +73,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
         forwardedRef.current = node;
       }
     },
-    [forwardedRef]
+    [forwardedRef],
   );
 
   useGSAP(
@@ -82,7 +82,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
       if (!container || disabled) return;
 
       const reducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
+        "(prefers-reduced-motion: reduce)",
       ).matches;
       if (reducedMotion) return;
 
@@ -150,7 +150,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
           const resolvedScroller =
             typeof scroller === "string" || scroller instanceof HTMLElement
               ? scroller
-              : scroller?.current ?? undefined;
+              : (scroller?.current ?? undefined);
 
           animation.scrollTrigger = {
             trigger: container,
@@ -164,16 +164,13 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
           const resolvedScroller =
             typeof scroller === "string" || scroller instanceof HTMLElement
               ? scroller
-              : scroller?.current ?? undefined;
+              : (scroller?.current ?? undefined);
 
           animation.delay = delay;
           animation.scrollTrigger = {
             trigger: container,
             start,
-            once,
-            toggleActions: once
-              ? "play none none none"
-              : "play reverse play reverse",
+            toggleActions: "play reverse play reverse",
             invalidateOnRefresh: true,
             scroller: resolvedScroller,
           };
@@ -228,7 +225,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
         filterId,
         children,
       ],
-    }
+    },
   );
 
   return (
