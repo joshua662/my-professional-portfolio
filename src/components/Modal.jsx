@@ -105,7 +105,7 @@ export default function Modal({ activeModal, onClose }) {
 
   if (!activeModal) return null;
 
-  const { item, items, title, skills } = activeModal;
+  const { item, title, skills } = activeModal;
 
   return (
     <div
@@ -150,13 +150,6 @@ export default function Modal({ activeModal, onClose }) {
           <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 justify-items-center py-4">
             {skills.map((skill) => (
               <SkillCard key={skill[0]} skill={skill} />
-            ))}
-          </div>
-        ) : items ? (
-          /* Render Multiple Items (e.g. Certificates list) */
-          <div className="space-y-6">
-            {items.map((entry) => (
-              <ModalItem key={entry.id} item={entry} />
             ))}
           </div>
         ) : item ? (

@@ -99,6 +99,10 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                 <div>
                   {/* Top Badges Bar */}
                   <div className="flex flex-wrap items-center gap-3 mb-5">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-[11px] font-bold uppercase tracking-wider text-gray-900 dark:text-white shadow-2xs">
+                      <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
+                      {project.type}
+                    </span>
                     {project.badge && (
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-[11px] font-bold uppercase tracking-wider text-gray-900 dark:text-white shadow-2xs">
                         <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white animate-pulse" />
@@ -115,6 +119,9 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                         • {project.subtitle}
                       </span>
                     )}
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                      {index + 1} / {totalProjects}
+                    </span>
                   </div>
 
                   {/* Main Large Title */}
@@ -127,12 +134,15 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                     </h3>
                   </GooeyTextReveal>
 
-                  {/* Description Paragraph */}
+                  {/* Project Overview */}
                   <GooeyTextReveal
                     key={`desc-${isActive}`}
                     mode={isActive ? "immediate" : "none"}
                     delay={0.1}
                   >
+                    <p className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+                      PROJECT OVERVIEW
+                    </p>
                     <p className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300 font-normal mb-6">
                       {project.description}
                     </p>
@@ -266,13 +276,13 @@ export default function Projects({ onOpenProjectModal }) {
       <div className="sticky top-0 z-20 flex h-screen flex-col overflow-hidden bg-white dark:bg-black">
         <div className="container mx-auto max-w-7xl shrink-0 px-6 pt-24 pb-4">
           <div className="section-heading mb-0">
-            <h2>Projects</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">Projects</h2>
             <span />
           </div>
         </div>
 
         <div className="relative min-h-0 flex-1">
-          <div className="absolute inset-0 container mx-auto max-w-7xl px-6 pb-8">
+          <div className="absolute inset-0 container mx-auto max-w-7xl px-4 pb-6 sm:px-6 sm:pb-8">
             {projects.map((project, index) => (
               <Card
                 key={project.id}

@@ -85,10 +85,6 @@ export default function App() {
     setActiveModal({ item: project, title: project.title });
   };
 
-  const handleOpenCertificatesModal = (title, items) => {
-    setActiveModal({ items, title });
-  };
-
   const handleOpenCategorySkillModal = (groupTitle, skills) => {
     setActiveModal({ skills, title: `${groupTitle} Skills` });
   };
@@ -111,7 +107,7 @@ export default function App() {
         <About />
         <Skills onOpenCategoryModal={handleOpenCategorySkillModal} />
         <Projects onOpenProjectModal={handleOpenProjectModal} />
-        <Certificates onOpenCertificatesModal={handleOpenCertificatesModal} />
+        <Certificates />
         <Contact />
       </main>
 
