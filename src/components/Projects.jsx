@@ -13,32 +13,37 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
   const cardRef = useRef(null);
   const [isActive, setIsActive] = useState(index === 0);
 
-  // Divide scroll range into 4 distinct phases with 1-second effect fade crossover windows
-  let inputRanges;
-  let opacityRanges;
-  let scaleRanges;
+  // Keep every project in the same viewport while giving adjacent cards a
+  // mirrored crossfade that works identically when scrolling up or down.
+  const segment = 1 / Math.max(totalProjects, 1);
+  const transition = Math.min(segment * 0.26, 0.07);
+  const start = index * segment;
+  const end = (index + 1) * segment;
 
-  if (index === 0) {
-    // Project 1: Starts 100% visible -> holds -> 1s effect fade out to Project 2
-    inputRanges = [0, 0.15, 0.28, 1];
-    opacityRanges = [1, 1, 0, 0];
-    scaleRanges = [1, 1, 0.92, 0.92];
-  } else if (index === 1) {
-    // Project 2: Fades in as Project 1 fades out -> holds 100% -> 1s effect fade out as Project 3 fades in
-    inputRanges = [0, 0.15, 0.28, 0.43, 0.56, 1];
-    opacityRanges = [0, 0, 1, 1, 0, 0];
-    scaleRanges = [0.92, 0.92, 1, 1, 0.92, 0.92];
-  } else if (index === 2) {
-    // Project 3: Fades in as Project 2 fades out -> holds 100% -> 1s effect fade out as Project 4 fades in
-    inputRanges = [0, 0.43, 0.56, 0.71, 0.84, 1];
-    opacityRanges = [0, 0, 1, 1, 0, 0];
-    scaleRanges = [0.92, 0.92, 1, 1, 0.92, 0.92];
-  } else {
-    // Project 4: Fades in as Project 3 fades out -> holds 100% to section end
-    inputRanges = [0, 0.71, 0.84, 1];
-    opacityRanges = [0, 0, 1, 1];
-    scaleRanges = [0.92, 0.92, 1, 1];
-  }
+  const isFirst = index === 0;
+  const isLast = index === totalProjects - 1;
+  const inputRanges = isFirst
+    ? [0, end - transition, end + transition, 1]
+    : isLast
+      ? [0, start - transition, start + transition, 1]
+      : [
+          0,
+          start - transition,
+          start + transition,
+          end - transition,
+          end + transition,
+          1,
+        ];
+  const opacityRanges = isFirst
+    ? [1, 1, 0, 0]
+    : isLast
+      ? [0, 0, 1, 1]
+      : [0, 0, 1, 1, 0, 0];
+  const scaleRanges = isFirst
+    ? [1, 1, 0.92, 0.92]
+    : isLast
+      ? [0.92, 0.92, 1, 1]
+      : [0.92, 0.92, 1, 1, 0.92, 0.92];
 
   const opacity = useTransform(progress, inputRanges, opacityRanges);
   const scale = useTransform(progress, inputRanges, scaleRanges);
@@ -143,6 +148,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                         duration={0.7}
                         start="top 95%"
                         end="bottom 80%"
+                        once={false}
                       >
                         <h4 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3">
                           KEY FEATURES
@@ -158,6 +164,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                             duration={0.7}
                             start="top 95%"
                             end="bottom 80%"
+                            once={false}
                           >
                             <li className="flex items-start gap-3 leading-relaxed">
                               <span className="text-gray-900 dark:text-white font-bold text-lg">

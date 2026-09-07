@@ -49,6 +49,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
     end = "bottom 75%",
     scroller,
     once = false,
+    split = true,
     disabled = false,
     onComplete,
     className = "",
@@ -104,6 +105,38 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
       const build = () => {
         if (disposed) return;
         revert();
+
+        if (!split) {
+          gsap.set(container, {
+            filter: `blur(${blurAmount}em)`,
+            opacity: 0,
+            y: 6,
+          });
+
+          const animation = {
+            filter: "blur(0em)",
+            opacity: 1,
+            y: 0,
+            duration,
+            ease,
+            delay,
+          };
+
+          if (mode === "scroll") {
+            animation.scrollTrigger = {
+              trigger: container,
+              start,
+              toggleActions: once
+                ? "play none none none"
+                : "play reverse play reverse",
+              invalidateOnRefresh: true,
+              scroller: scroller?.current ?? scroller,
+            };
+          }
+
+          tween = gsap.to(container, animation);
+          return;
+        }
 
         const layers = [];
 
@@ -170,7 +203,9 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
           animation.scrollTrigger = {
             trigger: container,
             start,
-            toggleActions: "play reverse play reverse",
+            toggleActions: once
+              ? "play none none none"
+              : "play reverse play reverse",
             invalidateOnRefresh: true,
             scroller: resolvedScroller,
           };
@@ -223,7 +258,8 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
         disabled,
         onComplete,
         filterId,
-        children,
+        split,
+        split ? children : null,
       ],
     },
   );
