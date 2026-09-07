@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 import { navItems } from "../data/portfolioData";
 
 export default function Navbar({
@@ -9,45 +9,13 @@ export default function Navbar({
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isTopHovered, setIsTopHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const scrollTimerRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Reveal navbar on scroll
-      setIsVisible(true);
-
-      // Reset 3-second inactivity timer
-      if (scrollTimerRef.current) {
-        clearTimeout(scrollTimerRef.current);
-      }
-
-      scrollTimerRef.current = setTimeout(() => {
-        setIsVisible(false);
-      }, 3000);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-
-    // Initial 3-second hide timer
-    scrollTimerRef.current = setTimeout(() => {
-      setIsVisible(false);
-    }, 3000);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (scrollTimerRef.current) {
-        clearTimeout(scrollTimerRef.current);
-      }
-    };
-  }, []);
 
   const handleNavClick = (id) => {
     onNavigate(id);
     setMenuOpen(false);
   };
 
-  const isNavVisible = isVisible || isTopHovered || menuOpen;
+  const isNavVisible = isTopHovered || menuOpen;
 
   return (
     <>
