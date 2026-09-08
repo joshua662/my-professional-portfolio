@@ -14,10 +14,9 @@ export default function About() {
       <div className="flex min-h-screen items-center justify-center px-6 py-24">
         <div className="w-full max-w-6xl text-center">
           <GooeyTextReveal
-            mode="scroll"
-            start="top 95%"
-            end="bottom 80%"
-            delay={0.05}
+            mode="scrub"
+            start="top 90%"
+            end="bottom 65%"
             duration={0.9}
             blurAmount={0.35}
           >
@@ -27,10 +26,9 @@ export default function About() {
           </GooeyTextReveal>
 
           <GooeyTextReveal
-            mode="scroll"
-            start="top 95%"
-            end="bottom 80%"
-            delay={0.15}
+            mode="scrub"
+            start="top 90%"
+            end="bottom 65%"
             duration={0.9}
             blurAmount={0.35}
           >
@@ -46,10 +44,9 @@ export default function About() {
           </GooeyTextReveal>
 
           <GooeyTextReveal
-            mode="scroll"
-            start="top 95%"
-            end="bottom 80%"
-            delay={0.25}
+            mode="scrub"
+            start="top 90%"
+            end="bottom 65%"
             duration={0.9}
             blurAmount={0.35}
           >
@@ -68,9 +65,9 @@ export default function About() {
       <div className="flex min-h-screen items-center justify-center border-t border-gray-100 px-6 py-24 dark:border-gray-900">
         <div className="w-full max-w-7xl">
           <GooeyElementReveal
-            mode="scroll"
+            mode="scrub"
             start="top 85%"
-            end="bottom 20%"
+            end="bottom 45%"
             stagger={0.1}
           >
             <div className="grid gap-8 md:grid-cols-2">
@@ -90,12 +87,7 @@ export default function About() {
             </div>
           </GooeyElementReveal>
 
-          <GooeyElementReveal
-            mode="scroll"
-            start="top 85%"
-            end="bottom 20%"
-            delay={0.35}
-          >
+          <GooeyElementReveal mode="scrub" start="top 85%" end="bottom 45%">
             <div className="mt-12 text-center">
               <a
                 href="#resume"

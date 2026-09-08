@@ -62,7 +62,7 @@ export function GooeyElementReveal({
         delay,
         stagger: stagger > 0 ? stagger : undefined,
         onComplete: () => {
-          gsap.set(targets, { clearProps: "filter,willChange,transform" });
+          gsap.set(targets, { clearProps: "willChange" });
           if (onComplete) onComplete();
         },
       };
@@ -71,7 +71,9 @@ export function GooeyElementReveal({
         animation.scrollTrigger = {
           trigger: container,
           start,
-          toggleActions: "play reverse play reverse",
+          toggleActions: once
+            ? "play none none none"
+            : "play reverse play reverse",
           invalidateOnRefresh: true,
         };
       } else if (mode === "scrub") {

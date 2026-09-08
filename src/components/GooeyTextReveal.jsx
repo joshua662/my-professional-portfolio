@@ -174,7 +174,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
           ease,
           stagger,
           onComplete: () => {
-            gsap.set(layers, { clearProps: "filter,willChange,transform" });
+            gsap.set(layers, { clearProps: "willChange" });
             if (onComplete) onComplete();
           },
         };
