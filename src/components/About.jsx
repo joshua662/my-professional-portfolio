@@ -93,7 +93,15 @@ export default function About() {
                 href="#resume"
                 className="inline-flex items-center gap-3 rounded-full bg-black px-8 py-4 text-sm font-bold uppercase tracking-wide text-white transition-transform duration-300 hover:-translate-y-1 dark:bg-white dark:text-black"
               >
-                Learn more
+                <GooeyTextReveal
+                  mode="scrub"
+                  start="top 90%"
+                  end="bottom 65%"
+                  duration={0.9}
+                  blurAmount={0.35}
+                >
+                  Learn more
+                </GooeyTextReveal>
                 <i className="fas fa-arrow-right" aria-hidden="true" />
               </a>
             </div>
@@ -107,13 +115,29 @@ export default function About() {
 function InfoCard({ label, value }) {
   return (
     <div className="rounded-[1.75rem] border border-gray-200 bg-white px-8 py-8 shadow-[0_20px_45px_rgba(0,0,0,0.12)] dark:border-gray-800 dark:bg-gray-950 dark:shadow-[0_20px_45px_rgba(0,0,0,0.35)] sm:px-10 sm:py-9">
-      <p className="mb-5 font-mono text-xs uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">
-        <span className="mr-2 text-black dark:text-white">•</span>
-        {label}
-      </p>
-      <p className="text-2xl font-bold tracking-[-0.03em] text-black dark:text-white sm:text-3xl">
-        {value}
-      </p>
+      <GooeyTextReveal
+        mode="scrub"
+        start="top 90%"
+        end="bottom 65%"
+        duration={0.9}
+        blurAmount={0.35}
+      >
+        <p className="mb-5 font-mono text-xs uppercase tracking-[0.16em] text-gray-500 dark:text-gray-400">
+          <span className="mr-2 text-black dark:text-white">•</span>
+          {label}
+        </p>
+      </GooeyTextReveal>
+      <GooeyTextReveal
+        mode="scrub"
+        start="top 90%"
+        end="bottom 65%"
+        duration={0.9}
+        blurAmount={0.35}
+      >
+        <p className="text-2xl font-bold tracking-[-0.03em] text-black dark:text-white sm:text-3xl">
+          {value}
+        </p>
+      </GooeyTextReveal>
     </div>
   );
 }
