@@ -57,8 +57,10 @@ function TypewriterTerminal() {
       <span className="break-all text-left">{text}</span>
       <span
         aria-hidden="true"
-        className="ml-1 inline-block h-4 w-[2px] shrink-0 animate-pulse bg-black/80 dark:bg-white/80"
-      />
+        className="typing-cursor ml-1 inline-block shrink-0 text-black/80 dark:text-white/80"
+      >
+        |
+      </span>
     </div>
   );
 }
