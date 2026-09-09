@@ -8,11 +8,11 @@ export const roles = [
 
 export const navItems = [
   { id: "home", label: "Home" },
+  { id: "about", label: "About" },
   { id: "resume", label: "Skills" },
   { id: "portfolio", label: "Projects" },
   { id: "blog", label: "Certificates" },
   { id: "contact", label: "Contact" },
-  { id: "about", label: "About Me" },
 ];
 
 export const projects = [

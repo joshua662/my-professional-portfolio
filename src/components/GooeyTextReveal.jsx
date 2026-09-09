@@ -62,6 +62,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
     once = false,
     split = true,
     disabled = false,
+    playOnVisible = true,
     onComplete,
     className = "",
     ...props
@@ -175,7 +176,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
         attachScrollTrigger(animation);
         tween = gsap.to(targets, animation);
 
-        if (mode !== "scrub") {
+        if (mode !== "scrub" && playOnVisible) {
           window.requestAnimationFrame(() => {
             if (disposed || tween?.progress() > 0) return;
             const resolvedScroller = resolveScroller(scroller);
@@ -229,7 +230,10 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
           return;
         }
 
-        animateTargets(layers, { stagger, delay: mode === "immediate" ? delay : delay });
+        animateTargets(layers, {
+          stagger,
+          delay: mode === "immediate" ? delay : delay,
+        });
       };
 
       animationFrame = window.requestAnimationFrame(build);
@@ -272,6 +276,7 @@ export const GooeyTextReveal = React.forwardRef(function GooeyTextReveal(
         scroller,
         once,
         disabled,
+        playOnVisible,
         filterId,
         split,
       ],

@@ -78,28 +78,32 @@ export default function About() {
       id="about"
       className="bg-white text-black dark:bg-black dark:text-white"
     >
-      <div className="flex min-h-screen items-center justify-center px-6 py-24">
-        <div className="w-full max-w-6xl text-center">
+      <div className="flex min-h-[100svh] items-center justify-center px-6 py-14 sm:px-8 sm:py-16 lg:h-[100svh] lg:min-h-0 lg:overflow-hidden lg:py-20">
+        <div className="w-full max-w-6xl -translate-y-4 text-center sm:-translate-y-6 lg:-translate-y-20">
           <GooeyTextReveal
-            mode="scrub"
-            start="top 90%"
-            end="bottom 65%"
+            mode="scroll"
+            once
+            playOnVisible={false}
+            start="top 75%"
+            end="bottom 55%"
             duration={0.9}
             blurAmount={0.35}
           >
-            <span className="mb-14 inline-flex rounded-full border border-gray-200 bg-gray-50 px-5 py-2 font-mono text-xs uppercase tracking-[0.18em] text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400">
+            <span className="mb-8 inline-flex rounded-full border border-gray-200 bg-gray-50 px-5 py-2 font-mono text-xs uppercase tracking-[0.18em] text-gray-500 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 sm:mb-10">
               Why I do this
             </span>
           </GooeyTextReveal>
 
           <GooeyTextReveal
-            mode="scrub"
-            start="top 90%"
-            end="bottom 65%"
+            mode="scroll"
+            once
+            playOnVisible={false}
+            start="top 75%"
+            end="bottom 55%"
             duration={0.9}
             blurAmount={0.35}
           >
-            <h2 className="text-4xl font-black leading-[1.08] tracking-[-0.04em] sm:text-6xl lg:text-8xl">
+            <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-black leading-[1.02] tracking-[-0.04em]">
               There&apos;s something about taking two
               <br className="hidden sm:block" /> completely different worlds
               <br className="hidden sm:block" />
@@ -111,14 +115,16 @@ export default function About() {
           </GooeyTextReveal>
 
           <GooeyTextReveal
-            mode="scrub"
-            start="top 90%"
-            end="bottom 65%"
+            mode="scroll"
+            once
+            playOnVisible={false}
+            start="top 75%"
+            end="bottom 55%"
             duration={0.9}
             blurAmount={0.35}
           >
-            <div className="mx-auto my-12 h-px w-24 bg-gray-300 dark:bg-gray-700" />
-            <p className="text-2xl font-medium text-gray-500 dark:text-gray-400 sm:text-4xl">
+            <div className="mx-auto my-8 h-px w-20 bg-gray-300 dark:bg-gray-700 sm:my-10 sm:w-24" />
+            <p className="text-xl font-medium text-gray-500 dark:text-gray-400 sm:text-3xl lg:text-4xl">
               That&apos;s why I chose this field.
               <br />
               <span className="text-black dark:text-white">
@@ -154,7 +160,14 @@ export default function About() {
             </div>
           </GooeyElementReveal>
 
-          <GooeyElementReveal mode="scrub" start="top 85%" end="bottom 45%">
+          <GooeyTextReveal
+            mode="scrub"
+            start="top 90%"
+            end="bottom 65%"
+            split={false}
+            duration={0.9}
+            blurAmount={0.35}
+          >
             <div className="mt-12 text-center">
               <button
                 type="button"
@@ -165,7 +178,7 @@ export default function About() {
                 <i className="fas fa-arrow-right" aria-hidden="true" />
               </button>
             </div>
-          </GooeyElementReveal>
+          </GooeyTextReveal>
         </div>
       </div>
 

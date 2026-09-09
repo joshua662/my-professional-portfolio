@@ -32,6 +32,7 @@ export function GooeyElementReveal({
   className = "",
   stagger = 0,
   gooey = true,
+  playOnVisible = true,
   onComplete,
   ...props
 }) {
@@ -112,6 +113,8 @@ export function GooeyElementReveal({
       const tween = gsap.to(targets, animation);
 
       const playIfVisible = window.requestAnimationFrame(() => {
+        if (!playOnVisible) return;
+
         if (mode === "immediate") {
           tween.play();
           return;
@@ -158,6 +161,7 @@ export function GooeyElementReveal({
         once,
         stagger,
         gooey,
+        playOnVisible,
         filterId,
       ],
     },

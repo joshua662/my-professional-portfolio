@@ -45,6 +45,7 @@ export default function Navbar({
                   key={id}
                   type="button"
                   onClick={() => handleNavClick(id)}
+                  aria-current={isActive ? "page" : undefined}
                   className={`relative px-3 py-1.5 text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-colors cursor-pointer focus:outline-none ${
                     isActive
                       ? "text-gray-900 dark:text-white"
@@ -135,6 +136,7 @@ export default function Navbar({
                     type="button"
                     key={id}
                     onClick={() => handleNavClick(id)}
+                    aria-current={isActive ? "page" : undefined}
                     className={`text-left px-3.5 py-2 rounded-xl text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 flex items-center justify-between cursor-pointer ${
                       isActive
                         ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900 shadow-sm"
