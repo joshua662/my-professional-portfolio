@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { timelineItems } from "../data/portfolioData";
 import GooeyTextReveal from "./GooeyTextReveal";
 import GooeyElementReveal from "./GooeyElementReveal";
+import Lanyard from "./Lanyard";
 
 export default function About() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
@@ -303,13 +304,12 @@ export default function About() {
                       scaleFrom={0.98}
                       gooey={false}
                     >
-                      <div className="relative mx-auto w-full max-w-[28rem] overflow-hidden rounded-[2rem] border border-gray-300 bg-gray-50 dark:border-gray-700 dark:bg-gray-900">
-                        <img
-                          src="/image/Profile2.jpg"
-                          alt="Joshua Simpas"
-                          className="block h-[min(32rem,65vh)] w-full object-cover object-top"
+                      <div className="relative mx-auto w-full max-w-[28rem]">
+                        <Lanyard
+                          frontImage="/image/Profile2.jpg"
+                          position={[0, 0, 20]}
+                          gravity={[0, -40, 0]}
                         />
-                        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/5 bg-gradient-to-t from-white/80 to-transparent dark:from-black/80" />
                       </div>
                     </GooeyElementReveal>
                   </div>
@@ -469,7 +469,7 @@ function EducationEntry({ year, school, degree, tags, badge, scroller }) {
         <p className="font-mono text-xs italic tracking-[0.12em] text-gray-500 dark:text-gray-400">
           {year}
         </p>
-        <h4 className="mt-1.5 text-xl font-black tracking-[-0.04em] sm:text-2xl">
+        <h4 className="mt-1.5 text-xl font-black tracking-[-0.04em] text-black dark:text-white sm:text-2xl">
           {school}
         </h4>
         <p className="mt-1 text-sm font-light text-gray-600 dark:text-gray-300 sm:text-base">
@@ -510,7 +510,7 @@ function EducationEntry({ year, school, degree, tags, badge, scroller }) {
           duration={0.9}
           blurAmount={0.35}
         >
-          <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-medium dark:border-gray-700 dark:bg-gray-900">
+          <span className="mt-3 inline-flex items-center gap-2 rounded-full border border-gray-300 bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200">
             <span className="h-1.5 w-1.5 rounded-full bg-black dark:bg-white" />
             {badge}
           </span>
