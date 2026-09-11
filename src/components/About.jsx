@@ -339,7 +339,7 @@ export default function About() {
                         </div>
                       </GooeyTextReveal>
 
-                      <div className="relative border-l-2 border-gray-300 pl-8 dark:border-gray-700">
+                      <div className="relative border-l-2 border-gray-400 pl-8 dark:border-gray-700">
                         <EducationEntry
                           year="2022 — 2026"
                           school="Filamer Christian University"
@@ -466,13 +466,13 @@ function EducationEntry({ year, school, degree, tags, badge, scroller }) {
         duration={0.9}
         blurAmount={0.35}
       >
-        <p className="font-mono text-xs italic tracking-[0.12em] text-gray-500 dark:text-gray-400">
+        <p className="font-mono text-xs italic tracking-[0.12em] text-gray-600 dark:text-gray-400">
           {year}
         </p>
         <h4 className="mt-1.5 text-xl font-black tracking-[-0.04em] text-black dark:text-white sm:text-2xl">
           {school}
         </h4>
-        <p className="mt-1 text-sm font-light text-gray-600 dark:text-gray-300 sm:text-base">
+        <p className="mt-1 text-sm font-normal text-gray-700 dark:text-gray-300 sm:text-base">
           {degree}
         </p>
       </GooeyTextReveal>

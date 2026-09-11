@@ -110,16 +110,16 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       </span>
                     )}
                     {project.date && (
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                         {project.date}
                       </span>
                     )}
                     {project.subtitle && (
-                      <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-gray-400 dark:text-gray-500 hidden sm:inline-block">
+                      <span className="text-[11px] font-mono font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-500 hidden sm:inline-block">
                         • {project.subtitle}
                       </span>
                     )}
-                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                    <span className="text-[11px] font-mono font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                       {index + 1} / {totalProjects}
                     </span>
                   </div>
@@ -140,7 +140,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                     mode={isActive ? "immediate" : "none"}
                     delay={0.1}
                   >
-                    <p className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+                    <p className="mb-2 font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500">
                       PROJECT OVERVIEW
                     </p>
                     <p className="text-sm md:text-base leading-relaxed text-gray-600 dark:text-gray-300 font-normal mb-6">
@@ -160,7 +160,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                         end="bottom 80%"
                         once={false}
                       >
-                        <h4 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-3">
+                        <h4 className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 mb-3">
                           KEY FEATURES
                         </h4>
                       </GooeyTextReveal>

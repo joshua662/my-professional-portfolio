@@ -97,7 +97,7 @@ function CertificateCard({
                       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-gray-900 dark:bg-white" />
                       {category}
                     </span>
-                    <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                    <span className="font-mono text-[11px] font-semibold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                       {index + 1} / {totalCertificates}
                     </span>
                   </div>
@@ -111,7 +111,7 @@ function CertificateCard({
                     </h3>
                   </GooeyTextReveal>
 
-                  <p className="mb-2 font-mono text-xs font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500">
+                  <p className="mb-2 font-mono text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-500">
                     {certificate.provider}
                   </p>
                   <p className="mb-6 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-gray-300 md:text-base">

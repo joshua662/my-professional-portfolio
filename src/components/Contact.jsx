@@ -133,7 +133,7 @@ export default function Contact() {
                 {!showForm ? (
                   /* Standard Contact Details Card View */
                   <>
-                    <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 border-b border-gray-100 dark:border-gray-800 pb-4 mb-8">
+                    <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500 border-b border-gray-100 dark:border-gray-800 pb-4 mb-8">
                       CONTACT DETAILS
                     </h3>
 
@@ -144,7 +144,7 @@ export default function Contact() {
                           <i className="far fa-envelope text-lg" />
                         </div>
                         <div>
-                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                             EMAIL ADDRESS
                           </span>
                           <a
@@ -162,7 +162,7 @@ export default function Contact() {
                           <i className="fas fa-phone-alt text-base" />
                         </div>
                         <div>
-                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                             PHONE NUMBER
                           </span>
                           <a
@@ -180,7 +180,7 @@ export default function Contact() {
                           <i className="fas fa-location-dot text-base" />
                         </div>
                         <div>
-                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-400 dark:text-gray-500">
+                          <span className="block font-mono text-[10px] font-bold uppercase tracking-wider text-gray-500 dark:text-gray-500">
                             BASED IN
                           </span>
                           <p className="text-sm sm:text-base font-bold text-gray-900 dark:text-white">
@@ -204,7 +204,7 @@ export default function Contact() {
                   /* Form View */
                   <div>
                     <div className="flex items-center justify-between border-b border-gray-100 dark:border-gray-800 pb-4 mb-6">
-                      <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500">
+                      <h3 className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-500">
                         SEND A MESSAGE
                       </h3>
                       <button
@@ -281,8 +281,8 @@ export default function Contact() {
                         <div
                           className={`p-3 rounded-xl border text-xs font-semibold animate-fade-in ${
                             formMessage.type === "success"
-                              ? "border-emerald-300 bg-emerald-50 text-emerald-900"
-                              : "border-red-300 bg-red-50 text-red-900"
+                              ? "border-emerald-300 bg-emerald-50 text-emerald-900 dark:border-emerald-700 dark:bg-emerald-950 dark:text-emerald-200"
+                              : "border-red-300 bg-red-50 text-red-900 dark:border-red-700 dark:bg-red-950 dark:text-red-200"
                           }`}
                         >
                           {formMessage.text}
