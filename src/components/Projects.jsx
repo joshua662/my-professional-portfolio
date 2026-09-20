@@ -242,17 +242,22 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                   className="w-full text-left cursor-pointer focus:outline-none"
                 >
                   <div className="relative h-64 sm:h-80 lg:h-[380px] w-full rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200/80 dark:border-gray-800 p-4 sm:p-6 flex items-center justify-center overflow-hidden shadow-inner group-hover:bg-gray-100/70 dark:group-hover:bg-gray-800/90 transition-colors">
-                    {project.badge === "COMING SOON" ? (
-                      <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-gray-400 dark:text-gray-600 tracking-widest text-center uppercase">
-                        COMING SOON
-                      </h3>
-                    ) : (
+                    {project.image || project.poster ? (
                       <img
                         src={project.image || project.poster}
                         alt={project.title}
                         className="h-full w-full object-contain rounded-xl shadow-md transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                       />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-[clamp(4rem,10vw,8rem)] font-black uppercase tracking-[-0.06em] leading-[0.8] w-full h-full">
+                        <div className="font-light tracking-[0.02em] text-black dark:text-gray-300">
+                          COMING
+                        </div>
+                        <div className="text-black dark:text-white">
+                          SOON
+                        </div>
+                      </div>
                     )}
                   </div>
                 </button>
