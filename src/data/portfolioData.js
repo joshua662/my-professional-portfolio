@@ -89,6 +89,18 @@ export const projects = [
     ],
     technologies: ["React", "Vite", "JavaScript", "Tailwind CSS"],
   },
+  {
+    id: "project-5",
+    title: "Project Unknown",
+    type: "Upcoming Project",
+    badge: "COMING SOON",
+    date: "TBD",
+    subtitle: "STAY TUNED",
+    image: "",
+    description: "Something new is taking shape behind the scenes. Stay tuned.",
+    keyFeatures: ["To be announced"],
+    technologies: ["Classified"],
+  },
 ];
 
 export const certificates = [
