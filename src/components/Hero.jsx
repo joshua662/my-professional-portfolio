@@ -3,7 +3,7 @@ import GooeyTextReveal from "./GooeyTextReveal";
 
 const terminalCommands = [
   "sudo make it work",
-  "git commit -m 'changed the world'",
+  "git commit -m 'Start where you are, Build want you want.'",
   "import { creativity } from 'mind';",
   "class Solution extends Problem { }",
   "async function buildFuture() { }",
