@@ -9,7 +9,7 @@ const terminalCommands = [
   "async function buildFuture() { }",
   "while(true) { innovate(); }",
   "return <Innovation />;",
-  "const engineer = ComputerEngineer.getInstance();",
+  "const engineer = SoftwareEngineer.getInstance();",
 ];
 
 function TypewriterTerminal() {
