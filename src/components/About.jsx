@@ -243,7 +243,7 @@ export default function About() {
                         blurAmount={0.35}
                       >
                         <p className="mt-6 max-w-2xl border-l border-black pl-6 text-base leading-relaxed text-gray-600 dark:border-white dark:text-gray-300 sm:text-xl">
-                          I am a Computer Engineering student who enjoys
+                          I am a Software Engineering student who enjoys
                           building at the intersection of software and hardware.
                           I create full-stack web applications, design circuits,
                           and program microcontrollers to connect physical
