@@ -341,7 +341,7 @@ export default function About() {
 
                       <div className="relative border-l-2 border-gray-400 pl-8 dark:border-gray-700">
                         <EducationEntry
-                          year="2022 — 2026"
+                          year="2023 — Present"
                           school="Filamer Christian University"
                           degree="Bachelor of Science in Information Technology"
                           tags={focusTags}
