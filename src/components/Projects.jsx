@@ -60,7 +60,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
   return (
     <div
       ref={cardRef}
-      className={`absolute inset-0 flex items-center justify-center ${
+      className={`absolute inset-0 flex items-start justify-center pt-4 sm:pt-8 lg:pt-12 ${
         isActive ? "pointer-events-auto z-10" : "pointer-events-none z-0"
       }`}
     >
