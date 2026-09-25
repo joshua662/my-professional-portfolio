@@ -27,13 +27,13 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
     : isLast
       ? [0, start - transition, start + transition, 1]
       : [
-          0,
-          start - transition,
-          start + transition,
-          end - transition,
-          end + transition,
-          1,
-        ];
+        0,
+        start - transition,
+        start + transition,
+        end - transition,
+        end + transition,
+        1,
+      ];
   const opacityRanges = isFirst
     ? [1, 1, 0, 0]
     : isLast
@@ -60,9 +60,8 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
   return (
     <div
       ref={cardRef}
-      className={`absolute inset-0 flex items-start justify-center pt-4 sm:pt-8 lg:pt-12 ${
-        isActive ? "pointer-events-auto z-10" : "pointer-events-none z-0"
-      }`}
+      className={`absolute inset-0 flex items-start justify-center pt-4 sm:pt-8 lg:pt-12 ${isActive ? "pointer-events-auto z-10" : "pointer-events-none z-0"
+        }`}
     >
       <motion.div
         style={{
@@ -200,7 +199,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       start="top 95%"
                       end="bottom 80%"
                     >
-                      <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
+                      <div className="flex flex-wrap gap-8 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
                         {project.technologies.map((tech) => {
                           const isObj = typeof tech === 'object';
                           const techName = isObj ? tech.name : tech;
@@ -209,10 +208,10 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                             <span
                               key={techName}
                               title={techName}
-                              className="px-3 py-1 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80 text-xs font-mono font-semibold text-gray-700 dark:text-gray-200 inline-flex items-center justify-center gap-1.5"
+                              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80 text-xs font-mono font-semibold text-gray-700 dark:text-gray-200 inline-flex items-center justify-center gap-1.5"
                             >
                               {techIcon ? (
-                                <img src={techIcon} alt={techName} className="w-5 h-5 object-contain" />
+                                <img src={techIcon} alt={techName} className="w-6 h-6 object-contain" />
                               ) : (
                                 techName
                               )}
