@@ -75,7 +75,7 @@ function CertificateCard({
           yFrom={20}
           blurAmount={6}
         >
-          <div className="group relative overflow-hidden rounded-[2.5rem] border border-gray-200/90 bg-white p-6 shadow-xl transition-all duration-500 hover:shadow-2xl dark:border-gray-800 dark:bg-black sm:p-8 lg:p-10">
+          <div className="group relative overflow-y-auto max-h-[calc(100vh-10rem)] sm:max-h-[calc(100vh-12rem)] rounded-[2.5rem] border border-gray-200/90 bg-white p-6 shadow-xl transition-all duration-500 hover:shadow-2xl dark:border-gray-800 dark:bg-black sm:p-8 lg:p-10">
             <span className="pointer-events-none absolute left-4 top-4 font-mono text-sm text-gray-300 select-none dark:text-gray-700">
               ┌
             </span>
@@ -132,7 +132,7 @@ function CertificateCard({
               </div>
 
               <div className="w-full lg:col-span-5">
-                <div className="relative flex h-64 w-full items-center justify-center overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-50 p-4 shadow-inner transition-colors group-hover:bg-gray-100/70 dark:border-gray-800 dark:bg-gray-800/60 dark:group-hover:bg-gray-800/90 sm:h-80 sm:p-6 lg:h-[380px]">
+                <div className="relative flex h-48 w-full items-center justify-center overflow-hidden rounded-2xl border border-gray-200/80 bg-gray-50 p-4 shadow-inner transition-colors group-hover:bg-gray-100/70 dark:border-gray-800 dark:bg-gray-800/60 dark:group-hover:bg-gray-800/90 sm:h-64 sm:p-6 lg:h-[380px]">
                   <img
                     src={certificate.image}
                     alt={certificate.title}
