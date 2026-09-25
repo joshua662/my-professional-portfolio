@@ -119,14 +119,24 @@ function CertificateCard({
                   </p>
 
                   <div className="flex flex-wrap gap-2">
-                    {certificate.technologies.map((technology) => (
-                      <span
-                        key={technology}
-                        className="rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-mono font-semibold text-gray-700 dark:border-gray-800 dark:bg-gray-800/80 dark:text-gray-200"
-                      >
-                        {technology}
-                      </span>
-                    ))}
+                    {certificate.technologies.map((tech) => {
+                      const isObj = typeof tech === 'object';
+                      const techName = isObj ? tech.name : tech;
+                      const techIcon = isObj ? tech.icon : null;
+                      return (
+                        <span
+                          key={techName}
+                          title={techName}
+                          className="inline-flex items-center justify-center rounded-lg border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-mono font-semibold text-gray-700 dark:border-gray-800 dark:bg-gray-800/80 dark:text-gray-200"
+                        >
+                          {techIcon ? (
+                            <img src={techIcon} alt={techName} className="w-5 h-5 object-contain" />
+                          ) : (
+                            techName
+                          )}
+                        </span>
+                      );
+                    })}
                   </div>
                 </div>
               </div>

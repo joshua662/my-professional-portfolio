@@ -56,14 +56,24 @@ function ModalItem({ item, expanded = false }) {
               Technologies Used
             </span>
             <div className="flex flex-wrap gap-2">
-              {item.technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-1 text-xs font-bold text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
-                >
-                  {tech}
-                </span>
-              ))}
+              {item.technologies.map((tech) => {
+                const isObj = typeof tech === 'object';
+                const techName = isObj ? tech.name : tech;
+                const techIcon = isObj ? tech.icon : null;
+                return (
+                  <span
+                    key={techName}
+                    title={techName}
+                    className="inline-flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 px-3 py-1 text-xs font-bold text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 transition-colors hover:bg-gray-200 dark:hover:bg-gray-700"
+                  >
+                    {techIcon ? (
+                      <img src={techIcon} alt={techName} className="w-5 h-5 object-contain" />
+                    ) : (
+                      techName
+                    )}
+                  </span>
+                );
+              })}
             </div>
           </div>
         )}

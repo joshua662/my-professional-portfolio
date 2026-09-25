@@ -32,7 +32,12 @@ export const projects = [
       "Automated Grade Report & Analytics",
       "Role-Based Admin & Teacher Access",
     ],
-    technologies: ["Python", "Django", "Tailwind", "MySQL"],
+    technologies: [
+      { name: "Python", icon: "https://img.icons8.com/color/48/python--v1.png" },
+      { name: "Django", icon: "https://img.icons8.com/external-tal-revivo-filled-tal-revivo/48/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-filled-tal-revivo.png" },
+      { name: "Tailwind", icon: "https://img.icons8.com/color/48/tailwind_css.png" },
+      { name: "MySQL", icon: "https://img.icons8.com/color/48/mysql-logo.png" }
+    ],
   },
   {
     id: "project-2",

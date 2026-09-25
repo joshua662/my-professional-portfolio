@@ -201,14 +201,24 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       end="bottom 80%"
                     >
                       <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
-                        {project.technologies.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80 text-xs font-mono font-semibold text-gray-700 dark:text-gray-200"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                        {project.technologies.map((tech) => {
+                          const isObj = typeof tech === 'object';
+                          const techName = isObj ? tech.name : tech;
+                          const techIcon = isObj ? tech.icon : null;
+                          return (
+                            <span
+                              key={techName}
+                              title={techName}
+                              className="px-3 py-1 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80 text-xs font-mono font-semibold text-gray-700 dark:text-gray-200 inline-flex items-center justify-center gap-1.5"
+                            >
+                              {techIcon ? (
+                                <img src={techIcon} alt={techName} className="w-5 h-5 object-contain" />
+                              ) : (
+                                techName
+                              )}
+                            </span>
+                          );
+                        })}
                       </div>
                     </GooeyTextReveal>
                   )}
