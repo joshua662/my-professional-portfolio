@@ -250,12 +250,12 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                   onClick={() => onOpenProjectModal(project)}
                   className="group w-full text-left cursor-pointer focus:outline-none"
                 >
-                  <div className="relative h-48 sm:h-64 lg:h-[380px] w-full rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200/80 dark:border-gray-800 p-4 sm:p-6 flex items-center justify-center overflow-hidden shadow-inner group-hover:bg-gray-100/70 dark:group-hover:bg-gray-800/90 transition-colors">
+                  <div className="relative h-48 sm:h-64 lg:h-[380px] w-full rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200/80 dark:border-gray-800 flex items-center justify-center overflow-hidden shadow-inner group-hover:bg-gray-100/70 dark:group-hover:bg-gray-800/90 transition-colors">
                     {project.image || project.poster ? (
                       <img
                         src={project.image || project.poster}
                         alt={project.title}
-                        className="h-full w-full object-contain rounded-xl shadow-md transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                         loading="lazy"
                       />
                     ) : (
