@@ -80,7 +80,7 @@ export default function About() {
   useEffect(() => {
     const interval = setInterval(() => {
       setFocusIndex((prev) => (prev + 1) % focusWords.length);
-    }, 3000);
+    }, 1200);
     return () => clearInterval(interval);
   }, [focusWords.length]);
 
