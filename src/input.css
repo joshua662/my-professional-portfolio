@@ -286,3 +286,14 @@
     max-width: 6.5rem;
   }
 }
+
+@keyframes flip-char-anim {
+  0% { transform: rotateX(-90deg); opacity: 0; }
+  15% { transform: rotateX(0deg); opacity: 1; }
+  85% { transform: rotateX(0deg); opacity: 1; }
+  100% { transform: rotateX(90deg); opacity: 0; }
+}
+
+.flip-char {
+  animation: flip-char-anim var(--flip-duration, 2.2s) ease-in-out var(--flip-delay, 0s) var(--flip-iteration, 1) both;
+}

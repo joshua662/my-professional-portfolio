@@ -4,10 +4,13 @@ import { timelineItems } from "../data/portfolioData";
 import GooeyTextReveal from "./GooeyTextReveal";
 import GooeyElementReveal from "./GooeyElementReveal";
 import Lanyard from "./Lanyard";
+import FlipText from "./FlipText";
 
 export default function About() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const focusWords = ["Design", "Develop", "Test", "Maintain"];
+  const [focusIndex, setFocusIndex] = useState(0);
   const closeTimerRef = useRef(null);
   const aboutModalRef = useRef(null);
 
@@ -73,6 +76,13 @@ export default function About() {
   useEffect(() => {
     return () => window.clearTimeout(closeTimerRef.current);
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFocusIndex((prev) => (prev + 1) % focusWords.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [focusWords.length]);
 
   return (
     <section
@@ -153,7 +163,10 @@ export default function About() {
                 label="Degree"
                 value={education?.title ?? "BS Information Technology"}
               />
-              <InfoCard label="Focus" value="Software Development" />
+              <InfoCard
+                label="Focus"
+                value={<FlipText key={focusIndex} duration={0.8} loop={false}>{focusWords[focusIndex]}</FlipText>}
+              />
               <InfoCard
                 label="Timeline"
                 value={education?.year ?? "2023 - Present"}
@@ -559,10 +572,11 @@ function InfoCard({ label, value }) {
         end="bottom 65%"
         duration={0.9}
         blurAmount={0.35}
+        split={false}
       >
-        <p className="text-2xl font-bold tracking-[-0.03em] text-black dark:text-white sm:text-3xl">
+        <div className="text-2xl font-bold tracking-[-0.03em] text-black dark:text-white sm:text-3xl">
           {value}
-        </p>
+        </div>
       </GooeyTextReveal>
     </div>
   );
