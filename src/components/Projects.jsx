@@ -199,7 +199,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       start="top 95%"
                       end="bottom 80%"
                     >
-                      <div className="flex flex-wrap gap-8 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
+                      <div className="flex flex-wrap gap-6 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
                         {project.technologies.map((tech) => {
                           const isObj = typeof tech === 'object';
                           const techName = isObj ? tech.name : tech;
@@ -208,10 +208,10 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                             <span
                               key={techName}
                               title={techName}
-                              className="px-4 py-2 rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-800/80 text-xs font-mono font-semibold text-gray-700 dark:text-gray-200 inline-flex items-center justify-center gap-1.5"
+                              className="text-xs font-mono font-semibold text-gray-700 dark:text-gray-200 inline-flex items-center justify-center"
                             >
                               {techIcon ? (
-                                <img src={techIcon} alt={techName} className="w-6 h-6 object-contain" />
+                                <img src={techIcon} alt={techName} className="w-8 h-8 object-contain" />
                               ) : (
                                 techName
                               )}
