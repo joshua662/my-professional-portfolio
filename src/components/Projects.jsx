@@ -77,7 +77,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
           yFrom={20}
           blurAmount={6}
         >
-          <div className="relative rounded-[2.5rem] bg-white dark:bg-black border border-gray-200/90 dark:border-gray-800 p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 group overflow-y-auto max-h-[calc(100vh-10rem)] sm:max-h-[calc(100vh-12rem)]">
+          <div className="relative rounded-[2.5rem] bg-white dark:bg-black border border-gray-200/90 dark:border-gray-800 p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-y-auto max-h-[calc(100vh-10rem)] sm:max-h-[calc(100vh-12rem)]">
             {/* Technical Corner Bracket Accents */}
             <span className="absolute top-4 left-4 text-gray-300 dark:text-gray-700 font-mono text-sm pointer-events-none select-none">
               ┌
@@ -199,7 +199,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       start="top 95%"
                       end="bottom 80%"
                     >
-                      <div className="flex flex-wrap gap-6 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
+                      <div className="flex flex-wrap gap-200 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
                         {project.technologies.map((tech) => {
                           const isObj = typeof tech === 'object';
                           const techName = isObj ? tech.name : tech;
@@ -234,7 +234,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                     <button
                       type="button"
                       onClick={() => onOpenProjectModal(project)}
-                      className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors cursor-pointer focus:outline-none"
+                      className="group inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors cursor-pointer focus:outline-none"
                     >
                       VIEW CASE STUDY{" "}
                       <i className="fas fa-arrow-up-right-from-square text-xs group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -248,7 +248,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                 <button
                   type="button"
                   onClick={() => onOpenProjectModal(project)}
-                  className="w-full text-left cursor-pointer focus:outline-none"
+                  className="group w-full text-left cursor-pointer focus:outline-none"
                 >
                   <div className="relative h-48 sm:h-64 lg:h-[380px] w-full rounded-2xl bg-gray-50 dark:bg-gray-800/60 border border-gray-200/80 dark:border-gray-800 p-4 sm:p-6 flex items-center justify-center overflow-hidden shadow-inner group-hover:bg-gray-100/70 dark:group-hover:bg-gray-800/90 transition-colors">
                     {project.image || project.poster ? (
