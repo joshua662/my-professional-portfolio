@@ -36,7 +36,7 @@ export const projects = [
       { name: "Python", icon: "https://img.icons8.com/color/48/python--v1.png" },
       { name: "Django", icon: "https://img.icons8.com/external-tal-revivo-filled-tal-revivo/48/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-filled-tal-revivo.png" },
       { name: "Tailwind", icon: "https://img.icons8.com/color/48/tailwind_css.png" },
-      { name: "MySQL", icon: "https://img.icons8.com/color/48/mysql-logo.png" }
+      { name: "MySQL", icon: "https://img.icons8.com/color/96/mysql-logo.png" }
     ],
   },
   {
@@ -55,7 +55,12 @@ export const projects = [
       "Mechanical Motor Gate Actuation",
       "Hardware Override Security Logic",
     ],
-    technologies: ["Arduino", "C++", "RFID Sensors", "Hardware Integration"],
+    technologies: [
+      { name: "Arduino", icon: "https://img.icons8.com/color/48/arduino.png" },
+      { name: "C++", icon: "https://img.icons8.com/color/48/c-plus-plus-logo.png" },
+      { name: "RFID Sensors", icon: "https://img.icons8.com/fluency/96/rfid-sensor--v2.png" }
+    ],
+    // "Arduino", "C++", "RFID Sensors", "Hardware Integration"
   },
   {
     id: "project-3",
