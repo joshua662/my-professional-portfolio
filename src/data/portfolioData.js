@@ -33,10 +33,19 @@ export const projects = [
       "Role-Based Admin & Teacher Access",
     ],
     technologies: [
-      { name: "Python", icon: "https://img.icons8.com/color/48/python--v1.png" },
-      { name: "Django", icon: "https://img.icons8.com/external-tal-revivo-filled-tal-revivo/48/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-filled-tal-revivo.png" },
-      { name: "Tailwind", icon: "https://img.icons8.com/color/48/tailwind_css.png" },
-      { name: "MySQL", icon: "https://img.icons8.com/color/96/mysql-logo.png" }
+      {
+        name: "Python",
+        icon: "https://img.icons8.com/color/48/python--v1.png",
+      },
+      {
+        name: "Django",
+        icon: "https://img.icons8.com/external-tal-revivo-filled-tal-revivo/48/external-django-a-high-level-python-web-framework-that-encourages-rapid-development-logo-filled-tal-revivo.png",
+      },
+      {
+        name: "Tailwind",
+        icon: "https://img.icons8.com/color/48/tailwind_css.png",
+      },
+      { name: "MySQL", icon: "https://img.icons8.com/color/96/mysql-logo.png" },
     ],
   },
   {
@@ -57,8 +66,14 @@ export const projects = [
     ],
     technologies: [
       { name: "Arduino", icon: "https://img.icons8.com/color/48/arduino.png" },
-      { name: "C++", icon: "https://img.icons8.com/color/48/c-plus-plus-logo.png" },
-      { name: "RFID Sensors", icon: "https://img.icons8.com/fluency/96/rfid-sensor--v2.png" }
+      {
+        name: "C++",
+        icon: "https://img.icons8.com/color/48/c-plus-plus-logo.png",
+      },
+      {
+        name: "RFID Sensors",
+        icon: "https://img.icons8.com/fluency/96/rfid-sensor--v2.png",
+      },
     ],
     // "Arduino", "C++", "RFID Sensors", "Hardware Integration"
   },
@@ -78,8 +93,18 @@ export const projects = [
       "Team Member Assignment & Roles",
       "Calendar View & Scheduling Sync",
     ],
-    technologies: ["JavaScript", "Node.js", "Express", "MongoDB"],
+    technologies: [
+      {
+        name: "JavaScript",
+        icon: "https://img.icons8.com/fluency/96/javascript.png",
+      },
+      {
+        name: "Node.js",
+        icon: "https://img.icons8.com/color/48/nodejs.png",
+      },
+    ],
   },
+  // "JavaScript", "Node.js", "Express", "MongoDB"
   {
     id: "project-4",
     title: "Personal Portfolio",
