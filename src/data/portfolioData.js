@@ -45,7 +45,10 @@ export const projects = [
         name: "Tailwind",
         icon: "https://img.icons8.com/color/48/tailwind_css.png",
       },
-      { name: "MySQL", icon: "https://img.icons8.com/color/96/mysql-logo.png" },
+      {
+        name: "MySQL",
+        icon: "https://img.icons8.com/fluency/96/mysql-logo.png",
+      },
     ],
   },
   {
@@ -101,6 +104,10 @@ export const projects = [
       {
         name: "Node.js",
         icon: "https://img.icons8.com/color/48/nodejs.png",
+      },
+      {
+        name: "MySQL",
+        icon: "https://img.icons8.com/fluency/96/mysql-logo.png",
       },
     ],
   },
