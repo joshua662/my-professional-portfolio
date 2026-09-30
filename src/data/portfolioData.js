@@ -129,8 +129,18 @@ export const projects = [
       "Responsive Full Screen Fitting",
       "Interactive Modal Case Study Previews",
     ],
-    technologies: ["React", "Vite", "JavaScript", "Tailwind CSS"],
+    technologies: [
+      {
+        name: "HTML",
+        icon: "https://img.icons8.com/color/96/html-5--v1.png",
+      },
+      {
+        name: "CSS",
+        icon: "https://img.icons8.com/color/96/css3.png",
+      },
+    ],
   },
+  // "React", "Vite", "JavaScript", "Tailwind CSS"
   {
     id: "project-5",
     title: "Project Unknown",
