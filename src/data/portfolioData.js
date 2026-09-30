@@ -138,6 +138,10 @@ export const projects = [
         name: "CSS",
         icon: "https://img.icons8.com/color/96/css3.png",
       },
+      {
+        name: "JavaScript",
+        icon: "https://img.icons8.com/color/96/javascript--v1.png",
+      },
     ],
   },
   // "React", "Vite", "JavaScript", "Tailwind CSS"
