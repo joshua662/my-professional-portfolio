@@ -77,6 +77,18 @@ export const projects = [
         name: "RFID Sensors",
         icon: "https://img.icons8.com/fluency/96/rfid-sensor--v2.png",
       },
+      {
+        name: "Laravel",
+        icon: "https://img.icons8.com/fluency/96/laravel.png",
+      },
+      {
+        name: "MySQL",
+        icon: "https://img.icons8.com/color/96/mysql-logo.png",
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "https://img.icons8.com/color/96/tailwind_css.png",
+      },
     ],
     // "Arduino", "C++", "RFID Sensors", "Hardware Integration"
   },
