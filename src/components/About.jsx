@@ -165,7 +165,11 @@ export default function About() {
               />
               <InfoCard
                 label="Focus"
-                value={<FlipText key={focusIndex} duration={0.8} loop={false}>{focusWords[focusIndex]}</FlipText>}
+                value={
+                  <FlipText key={focusIndex} duration={0.8} loop={false}>
+                    {focusWords[focusIndex]}
+                  </FlipText>
+                }
               />
               <InfoCard
                 label="Timeline"
@@ -422,7 +426,7 @@ export default function About() {
                                 href="tel:+639666504091"
                                 className="text-base text-black transition-colors hover:text-gray-500 dark:text-white dark:hover:text-gray-400"
                               >
-                                +639095924269
+                                +639461775555
                               </a>
                             </div>
                           </div>
