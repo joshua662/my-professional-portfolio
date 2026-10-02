@@ -28,9 +28,9 @@ export default function About() {
     "Database Design and Development",
     "Embedded Systems",
     "Digital Signal Processing",
-    "Internet of Things",
-    "Computer Architecture and Organization",
-    "Machine Learning",
+    // "Internet of Things",
+    // "Computer Architecture and Organization",
+    // "Machine Learning",
   ];
 
   const handleOpenAboutModal = () => {
