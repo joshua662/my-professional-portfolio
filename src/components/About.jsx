@@ -603,7 +603,7 @@ function TechnicalArsenal({ scroller }) {
       <GooeyTextReveal
         mode="scroll"
         scroller={scroller}
-        start="top 88%"
+        start="top bottom"
         split={false}
         duration={0.9}
         blurAmount={0.35}
@@ -624,7 +624,7 @@ function TechnicalArsenal({ scroller }) {
             key={section.id}
             mode="scroll"
             scroller={scroller}
-            start="top 90%"
+            start="top bottom"
             delay={0.1 * index}
             duration={0.7}
             yFrom={12}
@@ -636,28 +636,39 @@ function TechnicalArsenal({ scroller }) {
               onClick={() => setOpenSection(openSection === section.id ? null : section.id)}
             >
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300">
-                  <i className={section.icon} aria-hidden="true" />
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-gray-700 dark:bg-gray-900 dark:text-gray-300">
+                  {section.id === 'languages' ? (
+                    <span className="font-mono font-bold text-sm">&lt;/&gt;</span>
+                  ) : (
+                    <i className={section.icon} aria-hidden="true" />
+                  )}
                 </div>
                 <span className="text-lg font-bold text-black dark:text-white">{section.title}</span>
               </div>
               <div className="flex items-center gap-4">
                 <span className="font-mono text-sm text-gray-400 dark:text-gray-500">{section.count}</span>
                 <i 
-                  className={`fas fa-chevron-down text-gray-300 transition-transform duration-300 ${openSection === section.id ? 'rotate-180' : ''}`} 
+                  className={`fas fa-chevron-down text-gray-400 transition-transform duration-300 ${openSection === section.id ? 'rotate-180' : ''}`} 
                 />
               </div>
             </div>
-            {/* Expanded content placeholder */}
+            
             <div 
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openSection === section.id ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+                openSection === section.id ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'
               }`}
             >
-              <div className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-900">
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  Details for {section.title} would go here.
-                </p>
+              <div className="rounded-[1rem] bg-gray-50 p-6 dark:bg-gray-900/50">
+                <div className="flex flex-wrap gap-2">
+                  {Array.from({ length: section.count }).map((_, i) => (
+                    <span 
+                      key={i}
+                      className="inline-flex rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
+                    >
+                      Skill {i + 1}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </GooeyElementReveal>
