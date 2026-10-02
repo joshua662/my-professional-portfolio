@@ -372,8 +372,6 @@ export default function About() {
                           scroller={aboutModalRef}
                         />
                       </div>
-
-                      <TechnicalArsenal scroller={aboutModalRef} />
                     </div>
 
                     <GooeyElementReveal
@@ -464,6 +462,12 @@ export default function About() {
                       </div>
                     </GooeyElementReveal>
                   </div>
+                </div>
+              </section>
+
+              <section className="relative z-10 isolate overflow-hidden bg-white dark:bg-black">
+                <div className="mx-auto max-w-7xl px-6 py-16 sm:px-10 sm:py-20 lg:px-16">
+                  <TechnicalArsenal scroller={aboutModalRef} />
                 </div>
               </section>
             </div>
@@ -588,91 +592,184 @@ function InfoCard({ label, value }) {
   );
 }
 
+const arsenalSections = [
+  {
+    id: "languages",
+    title: "Languages",
+    icon: "fas fa-code",
+    useCodeGlyph: true,
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "PHP",
+      "HTML",
+      "CSS",
+      "SQL",
+      "C++",
+      "Java",
+    ],
+  },
+  {
+    id: "tools",
+    title: "Tools",
+    icon: "fas fa-wrench",
+    skills: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Visual Studio",
+      "Npm",
+      "Vite",
+      "XAMPP",
+      "Arduino IDE",
+      "Postman",
+      "Figma",
+      "Chrome DevTools",
+      "MySQL Workbench",
+      "Windows",
+      "Kali Linux",
+      "Fedora",
+      "Composer",
+    ],
+  },
+  {
+    id: "technologies",
+    title: "Technologies",
+    icon: "fas fa-cog",
+    skills: [
+      "React",
+      "Vue.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Laravel",
+      "Django",
+      "MySQL",
+    ],
+  },
+  {
+    id: "soft-skills",
+    title: "Soft Skills",
+    icon: "fas fa-globe",
+    skills: [
+      "Problem Solving",
+      "Communication",
+      "Teamwork",
+      "Time Management",
+      "Adaptability",
+      "Critical Thinking",
+      "Leadership",
+      "Attention to Detail",
+      "Creativity",
+      "Continuous Learning",
+    ],
+  },
+];
+
+const arsenalSkillCount = arsenalSections.reduce(
+  (total, section) => total + section.skills.length,
+  0,
+);
+
 function TechnicalArsenal({ scroller }) {
   const [openSection, setOpenSection] = useState(null);
 
-  const skillsData = [
-    { id: 'languages', title: 'Languages', icon: 'fas fa-code', count: 9 },
-    { id: 'tools', title: 'Tools', icon: 'fas fa-wrench', count: 16 },
-    { id: 'technologies', title: 'Technologies', icon: 'fas fa-microchip', count: 7 },
-    { id: 'soft-skills', title: 'Soft Skills', icon: 'fas fa-brain', count: 10 },
-  ];
-
   return (
-    <div className="mt-16 w-full">
+    <div className="mx-auto w-full max-w-4xl">
       <GooeyTextReveal
         mode="scroll"
         scroller={scroller}
-        start="top bottom"
+        start="top 90%"
         split={false}
         duration={0.9}
         blurAmount={0.35}
       >
-        <div className="mb-6 flex items-end justify-between">
-          <h3 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-black tracking-[-0.03em] text-black dark:text-white">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <h3 className="text-[clamp(1.75rem,3.5vw,2.5rem)] font-black tracking-[-0.04em] text-black dark:text-white">
             Technical Arsenal
           </h3>
-          <span className="font-mono text-sm tracking-[0.12em] text-gray-500 dark:text-gray-400 pb-1">
-            42 SKILLS
+          <span className="pb-1 font-mono text-[11px] uppercase tracking-[0.18em] text-gray-400 dark:text-gray-500">
+            {arsenalSkillCount} SKILLS
           </span>
         </div>
       </GooeyTextReveal>
 
-      <div className="space-y-4">
-        {skillsData.map((section, index) => (
-          <GooeyElementReveal
-            key={section.id}
-            mode="scroll"
-            scroller={scroller}
-            start="top bottom"
-            delay={0.1 * index}
-            duration={0.7}
-            yFrom={12}
-            scaleFrom={0.98}
-            gooey={false}
-          >
-            <div 
-              className="rounded-[1rem] border border-gray-200 bg-white px-6 py-4 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-900 cursor-pointer flex items-center justify-between"
-              onClick={() => setOpenSection(openSection === section.id ? null : section.id)}
+      <div className="space-y-3">
+        {arsenalSections.map((section, index) => {
+          const isOpen = openSection === section.id;
+
+          return (
+            <GooeyElementReveal
+              key={section.id}
+              mode="scroll"
+              scroller={scroller}
+              start="top 92%"
+              delay={0.06 * index}
+              duration={0.7}
+              yFrom={12}
+              scaleFrom={0.98}
+              gooey={false}
             >
-              <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-50 text-gray-700 dark:bg-gray-900 dark:text-gray-300">
-                  {section.id === 'languages' ? (
-                    <span className="font-mono font-bold text-sm">&lt;/&gt;</span>
-                  ) : (
-                    <i className={section.icon} aria-hidden="true" />
-                  )}
-                </div>
-                <span className="text-lg font-bold text-black dark:text-white">{section.title}</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-sm text-gray-400 dark:text-gray-500">{section.count}</span>
-                <i 
-                  className={`fas fa-chevron-down text-gray-400 transition-transform duration-300 ${openSection === section.id ? 'rotate-180' : ''}`} 
-                />
-              </div>
-            </div>
-            
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openSection === section.id ? 'max-h-[800px] opacity-100 mt-4' : 'max-h-0 opacity-0'
-              }`}
-            >
-              <div className="rounded-[1rem] bg-gray-50 p-6 dark:bg-gray-900/50">
-                <div className="flex flex-wrap gap-2">
-                  {Array.from({ length: section.count }).map((_, i) => (
-                    <span 
-                      key={i}
-                      className="inline-flex rounded-full border border-gray-200 bg-white px-3 py-1.5 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
-                    >
-                      Skill {i + 1}
+              <div className="overflow-hidden rounded-[1.25rem] border border-gray-200 bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)] dark:border-gray-800 dark:bg-gray-950">
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  onClick={() =>
+                    setOpenSection(isOpen ? null : section.id)
+                  }
+                  className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-gray-50 dark:hover:bg-gray-900 sm:px-6"
+                >
+                  <span className="flex items-center gap-3.5">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gray-50 text-gray-600 dark:bg-gray-900 dark:text-gray-300">
+                      {section.useCodeGlyph ? (
+                        <span className="font-mono text-sm font-bold">
+                          {"</>"}
+                        </span>
+                      ) : (
+                        <i className={section.icon} aria-hidden="true" />
+                      )}
                     </span>
-                  ))}
+                    <span className="text-base font-bold text-black dark:text-white sm:text-lg">
+                      {section.title}
+                    </span>
+                  </span>
+                  <span className="flex items-center gap-3">
+                    <span className="font-mono text-sm text-gray-400 dark:text-gray-500">
+                      {section.skills.length}
+                    </span>
+                    <i
+                      className={`fas fa-chevron-down text-xs text-gray-400 transition-transform duration-300 ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                </button>
+
+                <div
+                  className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="border-t border-gray-100 px-5 py-4 dark:border-gray-800 sm:px-6">
+                      <div className="flex flex-wrap gap-2">
+                        {section.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="inline-flex rounded-full border border-gray-200 bg-gray-50 px-3 py-1.5 text-sm text-gray-700 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </GooeyElementReveal>
-        ))}
+            </GooeyElementReveal>
+          );
+        })}
       </div>
     </div>
   );
