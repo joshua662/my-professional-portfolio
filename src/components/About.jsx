@@ -372,6 +372,8 @@ export default function About() {
                           scroller={aboutModalRef}
                         />
                       </div>
+
+                      <TechnicalArsenal scroller={aboutModalRef} />
                     </div>
 
                     <GooeyElementReveal
@@ -582,6 +584,85 @@ function InfoCard({ label, value }) {
           {value}
         </div>
       </GooeyTextReveal>
+    </div>
+  );
+}
+
+function TechnicalArsenal({ scroller }) {
+  const [openSection, setOpenSection] = useState(null);
+
+  const skillsData = [
+    { id: 'languages', title: 'Languages', icon: 'fas fa-code', count: 9 },
+    { id: 'tools', title: 'Tools', icon: 'fas fa-wrench', count: 16 },
+    { id: 'technologies', title: 'Technologies', icon: 'fas fa-microchip', count: 7 },
+    { id: 'soft-skills', title: 'Soft Skills', icon: 'fas fa-brain', count: 10 },
+  ];
+
+  return (
+    <div className="mt-16 w-full">
+      <GooeyTextReveal
+        mode="scroll"
+        scroller={scroller}
+        start="top 88%"
+        split={false}
+        duration={0.9}
+        blurAmount={0.35}
+      >
+        <div className="mb-6 flex items-end justify-between">
+          <h3 className="text-[clamp(1.75rem,3.5vw,2.25rem)] font-black tracking-[-0.03em] text-black dark:text-white">
+            Technical Arsenal
+          </h3>
+          <span className="font-mono text-sm tracking-[0.12em] text-gray-500 dark:text-gray-400 pb-1">
+            42 SKILLS
+          </span>
+        </div>
+      </GooeyTextReveal>
+
+      <div className="space-y-4">
+        {skillsData.map((section, index) => (
+          <GooeyElementReveal
+            key={section.id}
+            mode="scroll"
+            scroller={scroller}
+            start="top 90%"
+            delay={0.1 * index}
+            duration={0.7}
+            yFrom={12}
+            scaleFrom={0.98}
+            gooey={false}
+          >
+            <div 
+              className="rounded-[1rem] border border-gray-200 bg-white px-6 py-4 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-900 cursor-pointer flex items-center justify-between"
+              onClick={() => setOpenSection(openSection === section.id ? null : section.id)}
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 text-gray-700 dark:bg-gray-900 dark:text-gray-300">
+                  <i className={section.icon} aria-hidden="true" />
+                </div>
+                <span className="text-lg font-bold text-black dark:text-white">{section.title}</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="font-mono text-sm text-gray-400 dark:text-gray-500">{section.count}</span>
+                <i 
+                  className={`fas fa-chevron-down text-gray-300 transition-transform duration-300 ${openSection === section.id ? 'rotate-180' : ''}`} 
+                />
+              </div>
+            </div>
+            {/* Expanded content placeholder */}
+            <div 
+              className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                openSection === section.id ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+              }`}
+            >
+              <div className="rounded-2xl bg-gray-50 p-6 dark:bg-gray-900">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  Details for {section.title} would go here.
+                </p>
+              </div>
+            </div>
+          </GooeyElementReveal>
+        ))}
+      </div>
     </div>
   );
 }
