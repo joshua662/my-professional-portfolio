@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { skillGroups } from "../data/portfolioData";
 import GooeyTextReveal from "./GooeyTextReveal";
 import GooeyElementReveal from "./GooeyElementReveal";
@@ -20,7 +20,7 @@ export function SkillCard({ skill }) {
 
 export default function Skills({ onOpenCategoryModal }) {
   return (
-    <section id="resume" className="section-white">
+    <section id="resume" className="section-white pb-24">
       <div className="container mx-auto max-w-7xl px-6">
         <div className="section-heading">
           <GooeyTextReveal mode="scroll" start="top 85%">
