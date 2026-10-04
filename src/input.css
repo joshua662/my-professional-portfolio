@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@source "../index.html";
+@source "./";
+
+@variant dark (&:where(.dark, .dark *));
 
 @layer utilities {
   .bg-green-50,
