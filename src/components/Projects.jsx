@@ -199,7 +199,7 @@ function Card({ project, index, totalProjects, progress, onOpenProjectModal }) {
                       start="top 95%"
                       end="bottom 80%"
                     >
-                      <div className="flex flex-wrap gap-200 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
+                      <div className="flex flex-wrap gap-2 pt-4 border-t border-gray-100 dark:border-gray-800 mb-6">
                         {project.technologies.map((tech) => {
                           const isObj = typeof tech === 'object';
                           const techName = isObj ? tech.name : tech;

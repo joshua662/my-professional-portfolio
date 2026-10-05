@@ -9,11 +9,11 @@ function ModalItem({ item, expanded = false }) {
     <article
       className={`flex flex-col gap-6 ${
         expanded
-          ? "md:flex-row items-start"
-          : "rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black p-5 shadow-sm md:flex-row md:items-center transition-all duration-300 hover:shadow-md"
+          ? "md:flex-row-reverse items-start"
+          : "rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-black p-5 shadow-sm md:flex-row-reverse md:items-center transition-all duration-300 hover:shadow-md"
       }`}
     >
-      {/* Media container: video or image */}
+      {/* Media container: video or image (displayed on the right side on desktop) */}
       <div className="flex min-h-52 w-full items-center justify-center overflow-hidden rounded-xl bg-gray-50 dark:bg-gray-800/80 p-2 md:w-1/2">
         {item.video ? (
           <video
@@ -34,7 +34,7 @@ function ModalItem({ item, expanded = false }) {
         )}
       </div>
 
-      {/* Details container */}
+      {/* Details container (displayed on the left side on desktop) */}
       <div className="w-full md:w-1/2 flex flex-col justify-between">
         <div>
           <h3 className="text-xl font-bold text-gray-900 dark:text-white leading-snug">
