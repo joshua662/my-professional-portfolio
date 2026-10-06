@@ -58,8 +58,8 @@ export const projects = [
         // "Firebase RTDB",
         // "PostgreSQL",
       ],
-      timeline: "May 2026",
-      role: "Lead Developer",
+      timeline: "May 2025",
+      role: "Backend Developer",
       projectLink: "#",
       keyFeatures: [
         "Split-Brain DB Sync (Firebase RTDB + Supabase RLS)",
@@ -111,6 +111,41 @@ export const projects = [
     image: "/image/Gate monitoring system.png",
     description:
       "An Arduino-powered gate monitoring and automation system that secures entryways using RFID sensors, real-time logging, and mechanical gate controls.",
+    caseSudy: {
+      tags: [
+        "MARCH 2026",
+        "ARDUINO & IOT HARDWARE",
+        "RFID",
+        "WEB PORTAL",
+        "MOBILE APP",
+      ],
+      heroTitle: "Automated Bar Gate",
+      heroSubtitle:
+        "An Arduino-based automated gate system that integrates RFID access control, real-time logging, and mechanical actuation for secure entryway management.",
+      heroImage: "/image/Gate monitoring system.png",
+      challenge:
+        "Securing entryways and monitoring access in real-time required a reliable hardware-software integration. Challenges included ensuring accurate RFID sensor readings, preventing unauthorized access, and maintaining a responsive system for gate actuation.",
+      solution:
+        "Developed a robust Arduino firmware that interfaces with RFID sensors to verify access credentials. Implemented real-time logging of entryway activity and mechanical motor control for gate actuation. Integrated a web portal for monitoring and managing access, along with a mobile app for remote control and notifications.",
+      technologies: [
+        "ARDUINO",
+        "LARAVEL",
+        "MYSQL",
+        "TAILWIND CSS",
+        "RFID SENSORS",
+        "FLUTTER",
+        "PYTHON",
+      ],
+      timeline: "MARCH 2026",
+      role: "Hardware & Software Developer",
+      projectLink: "#",
+      keyFeatures: [
+        "RFID Sensor Access Verification",
+        "Real-Time Entryway Activity Logging",
+        "Mechanical Motor Gate Actuation",
+        "Hardware Override Security Logic",
+      ],
+    },
     keyFeatures: [
       "RFID Sensor Access Verification",
       "Real-Time Entryway Activity Logging",
