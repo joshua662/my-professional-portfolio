@@ -1,9 +1,178 @@
 import React, { useEffect, useState } from "react";
 import { SkillCard } from "./Skills";
 
+function CaseStudyView({ caseStudy }) {
+  const asset = (path) =>
+    path ? (path.startsWith("/") ? path : `/${path}`) : "";
+
+  return (
+    <div className="space-y-12 py-2">
+      {/* 1. Header Section (Image 1) */}
+      <div className="space-y-6">
+        {caseStudy.tags && caseStudy.tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-2">
+            {caseStudy.tags.map((tag, idx) => (
+              <span
+                key={idx}
+                className="inline-flex items-center gap-1.5 rounded-full border border-gray-300 dark:border-gray-700 bg-gray-100/80 dark:bg-gray-800/80 px-3.5 py-1 font-mono text-[11px] font-semibold tracking-wider text-gray-700 dark:text-gray-300"
+              >
+                {idx === 0 && <i className="far fa-calendar-alt text-xs" />}
+                {idx === 1 && <i className="fas fa-tag text-xs" />}
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="space-y-4">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-gray-900 dark:text-white leading-[1.1]">
+            {caseStudy.heroTitle}
+          </h1>
+          <p className="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-400 font-normal max-w-4xl">
+            {caseStudy.heroSubtitle}
+          </p>
+        </div>
+      </div>
+
+      {/* 2. Hero Mockup Image (Image 2) */}
+      {caseStudy.heroImage && (
+        <div className="w-full overflow-hidden rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/50 p-3 sm:p-6 shadow-sm">
+          <img
+            src={asset(caseStudy.heroImage)}
+            alt={caseStudy.heroTitle}
+            className="w-full h-auto object-contain rounded-2xl shadow-md"
+          />
+        </div>
+      )}
+
+      {/* 3. Challenge / Solution & Technologies Sidebar (Image 3) */}
+      <div className="grid gap-10 lg:grid-cols-12 items-start">
+        {/* Left Column: Challenge & Solution */}
+        <div className="space-y-10 lg:col-span-8">
+          {/* The Challenge */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-6 h-0.5 bg-gray-900 dark:bg-white rounded-full"></span>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+                The Challenge
+              </h2>
+            </div>
+            <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 font-normal">
+              {caseStudy.challenge}
+            </p>
+          </div>
+
+          {/* The Solution */}
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <span className="w-6 h-0.5 bg-gray-900 dark:bg-white rounded-full"></span>
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+                The Solution
+              </h2>
+            </div>
+            <p className="text-base leading-relaxed text-gray-600 dark:text-gray-300 font-normal">
+              {caseStudy.solution}
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column: Technologies & Info Card */}
+        <div className="lg:col-span-4 rounded-3xl border border-gray-200 dark:border-gray-800 bg-gray-50/60 dark:bg-gray-900/60 p-6 sm:p-7 space-y-7 shadow-xs">
+          <div>
+            <div className="flex items-center gap-2 mb-4">
+              <i className="fas fa-microchip text-base text-gray-700 dark:text-gray-300" />
+              <h3 className="text-base font-bold text-gray-900 dark:text-white">
+                Technologies
+              </h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {caseStudy.technologies?.map((tech) => (
+                <span
+                  key={tech}
+                  className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-3 py-1 font-mono text-xs font-medium text-gray-700 dark:text-gray-200 shadow-2xs"
+                >
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {caseStudy.timeline && (
+            <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <span className="block font-mono text-[11px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
+                TIMELINE
+              </span>
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                {caseStudy.timeline}
+              </span>
+            </div>
+          )}
+
+          {caseStudy.role && (
+            <div className="border-t border-gray-200 dark:border-gray-800 pt-5">
+              <span className="block font-mono text-[11px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
+                ROLE
+              </span>
+              <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                {caseStudy.role}
+              </span>
+            </div>
+          )}
+
+          {caseStudy.projectLink && (
+            <div className="pt-2">
+              <a
+                href={caseStudy.projectLink}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full flex items-center justify-between rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold text-sm px-5 py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors shadow-sm"
+              >
+                <span>Visit Project</span>
+                <i className="fas fa-external-link-alt text-xs" />
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* 4. Key Features Grid (Image 4) */}
+      {caseStudy.keyFeatures && caseStudy.keyFeatures.length > 0 && (
+        <div className="space-y-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+          <div className="flex items-center gap-3">
+            <i className="fas fa-layer-group text-lg text-gray-800 dark:text-gray-200" />
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+              Key Features
+            </h2>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            {caseStudy.keyFeatures.map((feat, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-4 rounded-2xl border border-gray-200 dark:border-gray-800/80 bg-gray-50/50 dark:bg-gray-900/40 p-4 transition-all hover:bg-gray-100/60 dark:hover:bg-gray-800/50"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-gray-200/80 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                  <i className="far fa-check-circle text-base" />
+                </div>
+                <span className="text-sm font-medium text-gray-800 dark:text-gray-200 leading-snug">
+                  {feat}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ModalItem({ item, expanded = false }) {
   const asset = (path) =>
     path ? (path.startsWith("/") ? path : `/${path}`) : "";
+
+  if (item.caseStudy) {
+    return <CaseStudyView caseStudy={item.caseStudy} />;
+  }
 
   return (
     <article
@@ -149,7 +318,7 @@ export default function Modal({ activeModal, onClose }) {
         </button>
 
         {/* Modal Title */}
-        {title && (
+        {title && !item?.caseStudy && (
           <h2 className="mb-6 pr-10 text-2xl font-bold text-gray-900 dark:text-white border-b border-gray-100 dark:border-gray-800 pb-3">
             {title}
           </h2>
